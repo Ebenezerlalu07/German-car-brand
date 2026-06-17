@@ -108,11 +108,11 @@ export default function Navbar() {
                     {/* Header */}
                     <div className="flex items-center justify-between px-6 pt-8 pb-8">
 
-                        <p className="text-xs uppercase tracking-[0.3em] text-white/40">
+                        {/* <p className="text-xs uppercase tracking-[0.3em] text-white/40">
                             German Cars
-                        </p>
+                        </p> */}
 
-                        {/* <Image
+                        <Image
                             src="/Logo.png"
                             alt="Logo"
                             width={42}
@@ -122,15 +122,15 @@ export default function Navbar() {
         transition-all duration-500 ease-out
         group-hover:-translate-y-1
       "
-                        /> */}
+                        />
 
 
-        
 
-                    {/* Animated Close Button */}
-                    <button
-                        onClick={() => setMobileOpen(false)}
-                        className="
+
+                        {/* Animated Close Button */}
+                        <button
+                            onClick={() => setMobileOpen(false)}
+                            className="
           group
           flex h-12 w-12 items-center justify-center
           rounded-full
@@ -141,85 +141,83 @@ export default function Navbar() {
           hover:rotate-180
           hover:bg-white/10
         "
-                    >
-                        <X
-                            size={22}
-                            className="
+                        >
+                            <X
+                                size={22}
+                                className="
             text-white
             transition-all duration-300
             group-hover:scale-110
           "
-                        />
-                    </button>
+                            />
+                        </button>
 
-                </div>
+                    </div>
 
-                {/* Links */}
-                <ul className="flex flex-col px-6">
+                    {/* Links */}
+                    <ul className="flex flex-col px-6">
 
-                    <li className="border-b border-white/10">
-                        <a
-                            href="#about"
-                            onClick={() => setMobileOpen(false)}
-                            className="
+                        <li className="border-b border-white/10">
+                            <a
+                                href="#about"
+                                onClick={() => setMobileOpen(false)}
+                                className="
             block py-5 text-2xl text-white
             transition-all duration-300
             hover:translate-x-2
           "
-                        >
-                            About
-                        </a>
-                    </li>
+                            >
+                                About
+                            </a>
+                        </li>
 
-                    <li className="border-b border-white/10">
-                        <a
-                            href="#services"
-                            onClick={() => setMobileOpen(false)}
-                            className="
+                        <li className="border-b border-white/10">
+                            <a
+                                href="#services"
+                                onClick={() => setMobileOpen(false)}
+                                className="
             block py-5 text-2xl text-white
             transition-all duration-300
             hover:translate-x-2
           "
-                        >
-                            Services
-                        </a>
-                    </li>
+                            >
+                                Services
+                            </a>
+                        </li>
 
-                    <li className="border-b border-white/10">
-                        <a
-                            href="#contact"
-                            onClick={() => setMobileOpen(false)}
-                            className="
+                        <li className="border-b border-white/10">
+                            <a
+                                href="#contact"
+                                onClick={() => setMobileOpen(false)}
+                                className="
             block py-5 text-2xl text-white
             transition-all duration-300
             hover:translate-x-2
           "
-                        >
-                            Contact
-                        </a>
-                    </li>
+                            >
+                                Contact
+                            </a>
+                        </li>
 
-                </ul>
+                    </ul>
 
-                {/* Bottom Card */}
-                <div className="mt-auto p-6">
-                    <div
-                        className="
-      relative overflow-hidden
-      rounded-3xl
 
-      border border-white/20
-      bg-white/10
-
-      backdrop-blur-2xl
-      shadow-[0_8px_32px_rgba(255,255,255,0.08)]
-
-      p-5
-    "
-                    >
-                        {/* Glass Highlight */}
+                    {/* Bottom Card */}
+                    <div className="mt-auto px-6 pb-6 shrink-0">
                         <div
                             className="
+      relative overflow-hidden
+      rounded-2xl
+      border border-white/20
+      bg-white/10
+      backdrop-blur-2xl
+      shadow-[0_8px_32px_rgba(255,255,255,0.08)]
+      p-4 sm:p-5
+    "
+                        >
+                            {/* Glass Highlight */}
+                            <div
+                                className="
         absolute inset-0
         bg-gradient-to-br
         from-white/15
@@ -227,35 +225,35 @@ export default function Navbar() {
         to-transparent
         pointer-events-none
       "
-                        />
+                            />
 
-                        <div className="relative z-10">
-                            <p className="text-sm text-white/60">
-                                German Luxury Automotive Network
-                            </p>
+                            <div className="relative z-10">
+                                <p className="text-xs sm:text-sm text-white/60">
+                                    German Luxury Automotive Network
+                                </p>
 
-                            <p className="mt-2 text-white leading-relaxed">
-                                Connecting premium automotive brands worldwide.
-                            </p>
+                                <p className="mt-2 text-sm sm:text-base leading-relaxed text-white">
+                                    Connecting premium automotive brands worldwide.
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
 
-            {/* Overlay */ }
-    <div
-        onClick={() => setMobileOpen(false)}
-        className={`
+            {/* Overlay */}
+            <div
+                onClick={() => setMobileOpen(false)}
+                className={`
     fixed inset-0 z-30 bg-black/60 backdrop-blur-sm
     transition-all duration-300 lg:hidden
     ${mobileOpen
-                ? "opacity-100 visible"
-                : "opacity-0 invisible"
-            }
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
+                    }
   `}
-    />
+            />
         </header >
     );
 }
