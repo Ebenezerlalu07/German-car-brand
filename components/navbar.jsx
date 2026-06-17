@@ -203,7 +203,7 @@ export default function Navbar() {
 
 
                     {/* Bottom Card */}
-                    <div className="mt-auto px-6 pb-6 shrink-0">
+                    {/* <div className="mt-auto px-6 pb-6 shrink-0">
                         <div
                             className="
       relative overflow-hidden
@@ -215,7 +215,7 @@ export default function Navbar() {
       p-4 sm:p-5
     "
                         >
-                            {/* Glass Highlight */}
+                      
                             <div
                                 className="
         absolute inset-0
@@ -237,7 +237,7 @@ export default function Navbar() {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
