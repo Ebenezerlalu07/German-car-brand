@@ -95,7 +95,7 @@ export default function Hero() {
 
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/70 to-transparent" />
 
       {/* Main Content */}
       <div
