@@ -114,20 +114,25 @@ export default function Hero() {
       >
         <h1
           className="
-            max-w-[320px]
-            sm:max-w-[450px]
-            md:max-w-6xl
-            text-white
-            font-light
-            leading-[1.1]
-            tracking-tight
-            text-[24px]
-            sm:text-[30px]
-            md:text-[34px]
-            lg:text-[42px]
-            xl:text-[48px]
-            transition-all duration-500
-          "
+    max-w-full
+    sm:max-w-[450px]
+    md:max-w-6xl
+
+    text-white
+    font-light
+    tracking-tight
+
+    text-[22px]
+    sm:text-[30px]
+    md:text-[34px]
+    lg:text-[42px]
+    xl:text-[48px]
+
+    leading-[1.2]
+    sm:leading-[1.1]
+
+    break-words
+  "
         >
           {slides[currentSlide].title}
         </h1>
@@ -191,8 +196,8 @@ export default function Hero() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`relative overflow-hidden rounded-full transition-all duration-500 ${currentSlide === index
-                    ? "w-12 sm:w-20 h-[3px] bg-white/20"
-                    : "w-5 sm:w-8 h-[3px] bg-white/20 hover:bg-white/40"
+                  ? "w-12 sm:w-20 h-[3px] bg-white/20"
+                  : "w-5 sm:w-8 h-[3px] bg-white/20 hover:bg-white/40"
                   }`}
               >
                 {currentSlide === index && (
