@@ -111,18 +111,18 @@ export default function Navbar() {
                         {/* <p className="text-xs uppercase tracking-[0.3em] text-white/40">
                             German Cars
                         </p> */}
-
-                        <Image
-                            src="/Logo.png"
-                            alt="Logo"
-                            width={42}
-                            height={42}
-                            priority
-                            className="
+                        <a href="/">
+                            <Image
+                                src="/Logo.png"
+                                alt="Logo"
+                                width={42}
+                                height={42}
+                                priority
+                                className="
         transition-all duration-500 ease-out
         group-hover:-translate-y-1
       "
-                        />
+                            /></a>
 
 
 
