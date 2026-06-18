@@ -196,8 +196,8 @@ export default function Hero() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`relative overflow-hidden rounded-full transition-all duration-500 ${currentSlide === index
-                    ? "w-12 sm:w-20 h-[3px] bg-white/20"
-                    : "w-5 sm:w-8 h-[3px] bg-white/20 hover:bg-white/40"
+                  ? "w-12 sm:w-20 h-[3px] bg-white/20"
+                  : "w-5 sm:w-8 h-[3px] bg-white/20 hover:bg-white/40"
                   }`}
               >
                 {currentSlide === index && (
@@ -339,6 +339,107 @@ export default function Hero() {
               <ChevronDown size={18} />
             </button>
 
+          </div>
+        </div>
+      </div>
+
+
+      <div className="py-20">
+        <div className="max-w-8xl mx-auto px-6">
+          <h2 className="text-center text-3xl md:text-4xl font-light text-[#222] mb-16">
+            Explore our premium Brands
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:divide-x divide-gray-300">
+            {/* Audi */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/audi-logo.png"
+                alt="Audi"
+                width={120}
+                height={60}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                Audi
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
+
+            {/* Mercedes-Benz */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/benz-logo.png"
+                alt="Mercedes-Benz"
+                width={70}
+                height={70}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                Mercedes-Benz
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
+
+            {/* BMW */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/bmw-logo.png"
+                alt="BMW"
+                width={70}
+                height={70}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                BMW
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
+
+            {/* Porsche */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/porsche-logo.png"
+                alt="Porsche"
+                width={60}
+                height={70}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                Porsche
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
+
+            {/* Volkswagen */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/volkswagen-logo.png"
+                alt="Volkswagen"
+                width={70}
+                height={70}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                Volkswagen
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
+
+            {/* Alpina */}
+            <div className="group relative flex flex-col items-center justify-center gap-5 py-10 cursor-pointer">
+              <Image
+                src="/Alpina-Logo.png"
+                alt="Alpina"
+                width={70}
+                height={70}
+                className="h-[70px] object-contain"
+              />
+              <p className="text-base md:text-xl font-light text-gray-500 whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                Alpina
+              </p>
+              <span className="absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-black transition-all duration-300 group-hover:w-14"></span>
+            </div>
           </div>
         </div>
       </div>
