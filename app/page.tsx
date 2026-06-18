@@ -67,7 +67,7 @@ export default function Hero() {
   return (
 
 
-    <section className="relative h-screen">
+    <section className="relative h-screen px-6">
 
 
       <div className="absolute inset-0 overflow-hidden bg-black">
@@ -104,7 +104,7 @@ export default function Hero() {
         className="
           relative z-10
           flex h-full flex-col justify-center
-          px-6 sm:px-8 lg:px-12
+          sm:px-8 lg:px-12
           items-start text-left
           md:items-center md:text-center
           translate-y-[8vh]
@@ -347,10 +347,10 @@ export default function Hero() {
 
 
 
-      <div className="relative h-24 items-center px-6 lg:px-10">
+      {/* <div className="relative h-24 items-center px-6 lg:px-10">
         <div className=" py-8 lg:py-5">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+       
             <div>
               <h1 className="text-2xl md:text-3xl lg:text-3xl font-light leading-tight text-[#1f1f1f]">
                 Partnering{" "}
@@ -415,14 +415,8 @@ export default function Hero() {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="relative flex justify-center lg:justify-end"
             >
-              {/* Background Text */}
-              {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span className="text-[120px] md:text-[180px] lg:text-[260px] font-light text-black/5 leading-none select-none">
-                  Benz
-                </span>
-              </div> */}
 
-              {/* Car Image */}
+
               <Image
                 src="/Premium-car.png"
                 alt="Premium Car"
@@ -435,7 +429,7 @@ export default function Hero() {
 
           </div>
         </div>
-      </div>
+      </div> */}
 
 
     </section>
