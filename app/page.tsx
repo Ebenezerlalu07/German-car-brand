@@ -344,8 +344,95 @@ export default function Hero() {
       </div>
 
 
+      <div className="relative h-24 items-center px-6 lg:px-10">
+        <div className=" py-8 lg:py-5">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <h1 className="text-2xl md:text-3xl lg:text-3xl font-light leading-tight text-[#1f1f1f]">
+                Partnering{" "}
+                <span className="font-medium">Mercedes Benz</span>{" "}
+                <span className="text-gray-500">
+                  world-class luxury.
+                </span>
+              </h1>
 
+              <p className="mt-5 text-gray-800">
+                The Audi SQ8 SUV¹ stands out not only for its performance, but also
+                thanks to specially designed elements on the front and rear ends, such
+                as the air inlets, diffuser and exhaust tailpipes. The Audi rings in
+                2D look are also distinguishing features of this vehicle's
+                characteristic design language. Look forward to high ride comfort and
+                sporty handling. In the Audi SQ8 SUV¹ you will find technologies to
+                enhance dynamic performance combined with an extremely powerful V8
+                TFSI engine.
+              </p><br></br>
 
+              <button
+                className="
+    group
+    inline-flex
+    items-center
+    gap-2
+    whitespace-nowrap
+    rounded-full
+    border
+    border-black
+    bg-white
+    px-8
+    py-3
+    text-base
+    font-medium
+    text-black
+    transition-all
+    duration-300
+    hover:bg-black
+    hover:text-white
+    hover:-translate-y-0.5
+  "
+              >
+                <span>Discover</span>
+
+                <ChevronsRight
+                  size={18}
+                  className="
+      shrink-0
+      transition-transform
+      duration-300
+      group-hover:translate-x-1
+    "
+                />
+              </button>
+            </div>
+
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="relative flex justify-center lg:justify-end"
+            >
+              {/* Background Text */}
+              {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="text-[120px] md:text-[180px] lg:text-[260px] font-light text-black/5 leading-none select-none">
+                  Benz
+                </span>
+              </div> */}
+
+              {/* Car Image */}
+              <Image
+                src="/Premium-car.png"
+                alt="Premium Car"
+                width={900}
+                height={700}
+                priority
+                className="relative z-10 w-full max-w-3xl object-contain"
+              />
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
 
 
     </section>
