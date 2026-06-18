@@ -68,30 +68,32 @@ export default function Hero() {
 
 
     <section className="relative h-screen">
-      {/* Background Image */}
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src={slides[currentSlide].image}
-            alt="Hero"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </motion.div>
-      </AnimatePresence>
+
+      <div className="absolute inset-0 overflow-hidden bg-black">
+        <AnimatePresence>
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+            }}
+          >
+            <Image
+              src={slides[currentSlide].image}
+              alt="Hero"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
 
       {/* Overlay */}
@@ -344,6 +346,7 @@ export default function Hero() {
       </div>
 
 
+
       <div className="relative h-24 items-center px-6 lg:px-10">
         <div className=" py-8 lg:py-5">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -357,7 +360,7 @@ export default function Hero() {
                 </span>
               </h1>
 
-              <p className="mt-5 text-gray-800">
+              <p className="mt-5 text-gray-800 text-1xl">
                 The Audi SQ8 SUV¹ stands out not only for its performance, but also
                 thanks to specially designed elements on the front and rear ends, such
                 as the air inlets, diffuser and exhaust tailpipes. The Audi rings in
