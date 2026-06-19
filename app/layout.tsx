@@ -5,6 +5,9 @@ import SmoothScroll from "../components/SmoothScroll";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+
+
+
 const michroma = Michroma({
   subsets: ["latin"],
   weight: "400",

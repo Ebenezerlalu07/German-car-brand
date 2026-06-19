@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -346,7 +348,7 @@ export default function Hero() {
             {/* Right */}
             <div>
               <Image
-                src="/Premium-car.png"
+                src="/Porsche-parts.png"
                 alt="Exploded Car"
                 width={900}
                 height={700}
