@@ -12,7 +12,7 @@ import { FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
     return (
         <footer className="bg-black text-white">
-            <div className=" mx-auto py-10 px-10 lg:py-12">
+            <div className=" mx-auto py-10 px-5 lg:py-12">
                 {/* Top */}
                 <div className="grid lg:grid-cols-[1fr_500px] gap-8 lg:gap-12 items-center">
                     {/* Left */}
@@ -77,8 +77,8 @@ export default function Footer() {
                 {/* Bottom */}
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                     {/* Heading */}
-                    <div className="max-w-1xl">
-                        <h2 className="text-2xl lg:text-[15px] leading-[1.1] font-light">
+                    <div className="max-w-xl">
+                        <h2 className="text-sm sm:text-lg md:text-xl lg:text-[15px] leading-[1.1] font-light">
                             Where German luxury meets timeless performance,
                             <br className="hidden lg:block" />
                             creating extraordinary automotive experiences.
@@ -91,14 +91,6 @@ export default function Footer() {
                         <div className="flex gap-6 lg:gap-10 text-[11px] sm:text-xs lg:text-sm text-white/90">
                             <Link href="/privacy">Privacy Policy</Link>
                             <Link href="/terms">Terms of Use</Link>
-                        </div>
-
-                        {/* Social */}
-                        <div className="flex items-center gap-7 px-8 py-5 rounded-full bg-[#121212]">
-                            <FaInstagram size={18} />
-                            <FaFacebookF size={18} />
-                            <FaXTwitter size={18} />
-                            <FaLinkedinIn size={18} />
                         </div>
                     </div>
                 </div>
