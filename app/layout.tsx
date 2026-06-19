@@ -3,6 +3,7 @@ import { Michroma } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "../components/SmoothScroll";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const michroma = Michroma({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "Automotive Network",
   ],
 
-  
+
 };
 
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <Navbar />
         <SmoothScroll />
         {children}
+        <Footer />
       </body>
     </html>
   );
