@@ -66,6 +66,9 @@ export default function Hero() {
 
   return (
     <>
+
+
+
       {/* Hero Section */}
       <section className="relative min-h-[100svh] overflow-hidden">
 
@@ -120,99 +123,43 @@ export default function Hero() {
     relative z-10
     flex min-h-[100svh]
     flex-col
+    items-start md:items-center
     justify-center
-    items-start
-    lg:items-center
-    text-left
-    lg:text-center
-
-    px-5
-    sm:px-8
-    lg:px-12
-
-    pt-28
-    sm:pt-32
-    md:pt-40
-
-    lg:justify-end
-    lg:pb-60
+    text-left md:text-center
+    px-4 sm:px-8 lg:px-12
+    pt-32 md:pt-88
   "
         >
-          {/* Heading */}
           <h1
             className="
-      max-w-full
-      sm:max-w-[500px]
-      md:max-w-4xl
-      lg:max-w-[850px]
-      xl:max-w-[1000px]
-
-      text-white
-      font-light
-      tracking-[-0.04em]
-
-      text-[26px]
-      sm:text-[32px]
-      md:text-[38px]
+      max-w-full md:max-w-6xl
+      text-white font-light tracking-tight
+      text-[22px]
+      sm:text-[30px]
+      md:text-[34px]
       lg:text-[42px]
       xl:text-[48px]
-
       leading-[1.1]
     "
           >
             {slides[currentSlide].title}
           </h1>
 
-          {/* Desktop Buttons */}
           <div className="hidden lg:flex mt-8 gap-4">
-            <button
-              className="
-        group
-        inline-flex items-center gap-2
-        rounded-full
-        bg-white
-        px-7 py-3
-        text-base
-        font-medium
-        text-black
-        transition-all duration-300
-        hover:scale-105
-      "
-            >
+            <button className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-black">
               <span>Discover</span>
-              <ChevronsRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
+              <ChevronsRight size={18} />
             </button>
 
-            <button
-              className="
-        group
-        inline-flex items-center gap-2
-        rounded-full
-        border border-white/30
-        bg-white/5
-        px-7 py-3
-        text-base
-        font-medium
-        text-white
-        backdrop-blur-sm
-        transition-all duration-300
-        hover:bg-white/10
-      "
-            >
+            <button className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-3 text-white backdrop-blur-sm">
               <span>Get in Touch</span>
-              <ChevronsRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
+              <ChevronsRight size={18} />
             </button>
           </div>
         </div>
 
         {/* Slider Indicator */}
-        <div className="absolute bottom-36 left-10 z-20 hidden md:flex items-center gap-4">
+        <div className="absolute bottom-36 left-10 z-20 hidden lg:flex items-center gap-4">
           <span className="text-xs tracking-[0.2em] text-white/60">
             {String(currentSlide + 1).padStart(2, "0")}
           </span>
@@ -321,7 +268,7 @@ export default function Hero() {
 
 
       {/* About Section */}
-      <section className=" py-10 lg:py-10 px-5">
+      <section className=" py-10 px-5 lg:py-10">
         <div className="mx-auto max-w-8xl ">
 
           {/* Top Content */}
@@ -347,14 +294,8 @@ export default function Hero() {
                 <span className="text-black/50">enables us to</span>
               </h2>
 
-              <div className="mt-8 space-y-8   text-sm
-  sm:text-[15px]
-  lg:text-base
-  leading-6
-  lg:leading-7
-  font-normal
-  text-black/80">
-                <p className="section-paragraph ">
+              <div className="mt-8 space-y-8">
+                <p className="section-paragraph">
                   The Audi SQ8 SUV¹ stands out not only for its performance, but also
                   thanks to specially designed elements on the front and rear ends,
                   such as the air inlets, diffuser and exhaust tailpipes. The Audi
@@ -408,7 +349,84 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Brand Row */}
+          <div className="mt-24">
+            <div className="grid grid-cols-2 gap-y-10 md:grid-cols-3 lg:grid-cols-6">
 
+              {/* Audi */}
+              <div className="flex flex-col items-center justify-center border-r border-black/10 px-4">
+                <Image
+                  src="/audi-logo.png"
+                  alt="Audi"
+                  width={120}
+                  height={60}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Audi</h3>
+              </div>
+
+              {/* Mercedes */}
+              <div className="flex flex-col items-center justify-center border-r border-black/10 px-4">
+                <Image
+                  src="/benz-logo.png"
+                  alt="Mercedes"
+                  width={70}
+                  height={70}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Mercedes-Benz</h3>
+              </div>
+
+              {/* BMW */}
+              <div className="flex flex-col items-center justify-center border-r border-black/10 px-4">
+                <Image
+                  src="/bmw-logo.png"
+                  alt="BMW"
+                  width={70}
+                  height={70}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Bmw</h3>
+              </div>
+
+              {/* Porsche */}
+              <div className="flex flex-col items-center justify-center border-r border-black/10 px-4">
+                <Image
+                  src="/porsche-logo.png"
+                  alt="Porsche"
+                  width={60}
+                  height={80}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Porsche</h3>
+              </div>
+
+              {/* Volkswagen */}
+              <div className="flex flex-col items-center justify-center border-r border-black/10 px-4">
+                <Image
+                  src="/vw-logo.png"
+                  alt="Volkswagen"
+                  width={70}
+                  height={70}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Volkswagen</h3>
+              </div>
+
+              {/* Alpina */}
+              <div className="flex flex-col items-center justify-center px-4">
+                <Image
+                  src="/alpina-logo.png"
+                  alt="Alpina"
+                  width={70}
+                  height={70}
+                  className="h-16 w-auto object-contain"
+                />
+                <h3 className="mt-5 text-2xl font-light">Alpina</h3>
+              </div>
+
+            </div>
+          </div>
 
         </div>
       </section>
