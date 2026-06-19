@@ -148,12 +148,18 @@ export default function Hero() {
           <div className="hidden lg:flex mt-8 gap-4">
             <button className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-black">
               <span>Discover</span>
-              <ChevronsRight size={18} />
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
             </button>
 
             <button className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-3 text-white backdrop-blur-sm">
               <span>Get in Touch</span>
-              <ChevronsRight size={18} />
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
             </button>
           </div>
         </div>
