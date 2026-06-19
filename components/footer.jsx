@@ -30,8 +30,7 @@ export default function Footer() {
                         {/* Description */}
                         <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-white/70">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.
+                                The Audi SQ8 SUV¹ stands out not only for its performance, but also designed elements on the lex extremely powerful V8 TFSI engine.
                             </p>
 
                             <p>
@@ -42,11 +41,11 @@ export default function Footer() {
                     </div>
 
                     {/* Car */}
-                    <div className="relative flex justify-center lg:justify-end">
+                    <div className="relative flex justify-center lg:justify-end h-[220px] sm:h-[300px] lg:h-auto">
 
                         {/* Background Text */}
-                        <div className="absolute inset-0 flex items-center justify-center lg:justify-end pointer-events-none">
-                            <span className="text-[120px] md:text-[180px] lg:text-[260px] font-bold text-white/5 tracking-tight leading-none select-none">
+                        <div className="absolute inset-0 flex items-center justify-center lg:justify-end pointer-events-none z-0">
+                            <span className="text-[32vw] sm:text-[180px] lg:text-[260px] font-bold text-white/5 tracking-tight leading-none select-none">
                                 GT4
                             </span>
                         </div>
