@@ -124,7 +124,7 @@ export default function Hero() {
     justify-center
     text-left md:text-center
     px-4 sm:px-8 lg:px-12
-    pt-32 md:pt-44
+    pt-32 md:pt-88
   "
         >
           <h1
@@ -167,8 +167,8 @@ export default function Hero() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`relative overflow-hidden rounded-full transition-all duration-500 ${currentSlide === index
-                    ? "w-20 h-[3px] bg-white/20"
-                    : "w-8 h-[3px] bg-white/20 hover:bg-white/40"
+                  ? "w-20 h-[3px] bg-white/20"
+                  : "w-8 h-[3px] bg-white/20 hover:bg-white/40"
                   }`}
               >
                 {currentSlide === index && (
@@ -191,8 +191,6 @@ export default function Hero() {
             {String(slides.length).padStart(2, "0")}
           </span>
         </div>
-
-
 
 
 
@@ -260,9 +258,99 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Next Section */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4">
+
+
+
+
+
+
+      {/* About Section */}
+      <section className=" py-10 lg:py-10 px-5">
+        <div className="mx-auto max-w-8xl ">
+
+          {/* Top Content */}
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+
+            {/* Left */}
+            <div>
+              <h2
+                className="
+    text-[40px]
+    sm:text-[48px]
+    md:text-[56px]
+    lg:text-[40px]
+    xl:text-[88px]
+    2xl:text-[28px]
+    leading-[1.05]
+    font-light
+    tracking-[-0.04em]
+    text-black
+  "
+              >
+                Partnering with Mercedes Benz{" "}
+                <span className="text-black/50">enables us to</span>
+              </h2>
+
+              <div className="mt-8 space-y-8   text-sm
+  sm:text-[15px]
+  lg:text-base
+  leading-6
+  lg:leading-7
+  font-normal
+  text-black/80">
+                <p className="section-paragraph ">
+                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
+                  thanks to specially designed elements on the front and rear ends,
+                  such as the air inlets, diffuser and exhaust tailpipes. The Audi
+                  rings in 2D look are also distinguishing features of this vehicle’s
+                  characteristic design language.
+                </p>
+
+                <p className="section-paragraph">
+                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
+                  thanks to specially designed elements on the front and rear ends.
+                  Look forward to high ride comfort and sporty handling and
+                  technologies to enhance dynamic performance combined with an
+                  extremely powerful V8 TFSI engine.
+                </p>
+              </div>
+
+              <button
+                className="
+    mt-8
+    group
+    inline-flex
+    items-center
+    gap-1.5
+    rounded-full
+    border border-black
+    px-6
+    py-3
+    text-base
+    transition-all duration-300
+    hover:bg-black
+    hover:text-white
+  "
+              >
+                Learn More
+                <ChevronsRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </button>
+            </div>
+
+            {/* Right */}
+            <div>
+              <Image
+                src="/Premium-car.png"
+                alt="Exploded Car"
+                width={900}
+                height={700}
+                className="w-full object-contain"
+              />
+            </div>
+          </div>
 
 
 
