@@ -120,37 +120,93 @@ export default function Hero() {
     relative z-10
     flex min-h-[100svh]
     flex-col
-    items-start md:items-center
     justify-center
-    text-left md:text-center
-    px-4 sm:px-8 lg:px-12
-    pt-32 md:pt-88
+    items-start
+    lg:items-center
+    text-left
+    lg:text-center
+
+    px-5
+    sm:px-8
+    lg:px-12
+
+    pt-28
+    sm:pt-32
+    md:pt-40
+
+    lg:justify-end
+    lg:pb-60
   "
         >
+          {/* Heading */}
           <h1
             className="
-      max-w-full md:max-w-6xl
-      text-white font-light tracking-tight
-      text-[22px]
-      sm:text-[30px]
-      md:text-[34px]
+      max-w-full
+      sm:max-w-[500px]
+      md:max-w-4xl
+      lg:max-w-[850px]
+      xl:max-w-[1000px]
+
+      text-white
+      font-light
+      tracking-[-0.04em]
+
+      text-[26px]
+      sm:text-[32px]
+      md:text-[38px]
       lg:text-[42px]
       xl:text-[48px]
+
       leading-[1.1]
     "
           >
             {slides[currentSlide].title}
           </h1>
 
-          <div className="hidden md:flex mt-8 gap-4">
-            <button className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-black">
+          {/* Desktop Buttons */}
+          <div className="hidden lg:flex mt-8 gap-4">
+            <button
+              className="
+        group
+        inline-flex items-center gap-2
+        rounded-full
+        bg-white
+        px-7 py-3
+        text-base
+        font-medium
+        text-black
+        transition-all duration-300
+        hover:scale-105
+      "
+            >
               <span>Discover</span>
-              <ChevronsRight size={18} />
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </button>
 
-            <button className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-3 text-white backdrop-blur-sm">
+            <button
+              className="
+        group
+        inline-flex items-center gap-2
+        rounded-full
+        border border-white/30
+        bg-white/5
+        px-7 py-3
+        text-base
+        font-medium
+        text-white
+        backdrop-blur-sm
+        transition-all duration-300
+        hover:bg-white/10
+      "
+            >
               <span>Get in Touch</span>
-              <ChevronsRight size={18} />
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </button>
           </div>
         </div>
