@@ -20,7 +20,7 @@ export default function Footer() {
                         {/* Navbar */}
                         <div className="flex items-center gap-5 mb-10">
                             <Image
-                                src="/logo.png"
+                                src="/Logo.png"
                                 alt="Logo"
                                 width={35}
                                 height={35}
