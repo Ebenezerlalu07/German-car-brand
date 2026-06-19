@@ -14,29 +14,45 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: white;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
 
-/* Optional: Better scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -48,6 +64,7 @@ body {
   background: #555;
 }
 
+/* Fade Pulse */
 @keyframes fadePulse {
   0% {
     opacity: 0.3;
@@ -68,10 +85,9 @@ body {
 .animate-fadePulse {
   animation: fadePulse 3s ease-in-out infinite;
   will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
+/* Glow */
 @keyframes glow {
   0% {
     opacity: 0.2;
@@ -92,10 +108,9 @@ body {
 .animate-glow {
   animation: glow 5s ease-in-out infinite;
   will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
+/* Progress */
 @keyframes progress {
   from {
     width: 0%;
@@ -110,6 +125,7 @@ body {
   animation: progress 5s linear forwards;
 }
 
+/* Marquee */
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -123,10 +139,9 @@ body {
 .animate-marquee {
   animation: marquee 18s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
+/* Car Slide */
 @keyframes car-slide {
   from {
     opacity: 0;
@@ -142,22 +157,10 @@ body {
 .animate-car-slide {
   animation: car-slide 1.2s ease-out forwards;
   will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
-@keyframes car-slide {
-  from {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.animate-car-slide {
-  animation: car-slide 1.2s ease-out forwards;
+/* Optional */
+section {
+  width: 100%;
+  overflow-x: hidden;
 }
