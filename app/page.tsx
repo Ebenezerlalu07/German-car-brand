@@ -272,9 +272,6 @@ export default function Hero() {
 
 
 
-
-
-
       {/* About Section */}
       <section className=" px-5 py-3">
         <div className="mx-auto max-w-8xl ">
@@ -339,30 +336,26 @@ export default function Hero() {
 
               </div>
 
-              <button
-                className="
+<button
+  className="
     mt-6 md:mt-8
     group
     inline-flex
     items-center
-    gap-1 sm:gap-1.5
+    gap-1
+    whitespace-nowrap
     rounded-full
     border border-black
     px-4 py-2
-    sm:px-5 sm:py-2.5
-    lg:px-6 lg:py-3
-    text-sm sm:text-base
+    text-xs sm:text-sm
     transition-all duration-300
     hover:bg-black
     hover:text-white
   "
-              >
-                Learn More
-                <ChevronsRight
-                  size={14}
-                  className="sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button>
+>
+  <span>Learn More</span>
+
+</button>
             </div>
 
             {/* Right */}
@@ -388,6 +381,16 @@ export default function Hero() {
 
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+
     </>
   );
 }
