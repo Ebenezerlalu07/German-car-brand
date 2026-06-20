@@ -285,7 +285,7 @@ export default function Hero() {
             {/* Left */}
             <div>
               <h2
-                className=" py-5
+                className=" py-3
     text-[20px]
     leading-tight
     sm:text-[36px]
