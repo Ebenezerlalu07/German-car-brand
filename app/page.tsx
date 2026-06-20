@@ -276,7 +276,7 @@ export default function Hero() {
 
 
       {/* About Section */}
-      <section className=" py-5 px-5 lg:py-5">
+      <section className=" px-5 py-3">
         <div className="mx-auto max-w-8xl ">
 
           {/* Top Content */}
@@ -285,8 +285,9 @@ export default function Hero() {
             {/* Left */}
             <div>
               <h2
-                className="
-    text-[28px]
+                className=" py-5
+    text-[20px]
+    leading-tight
     sm:text-[36px]
     md:text-[44px]
     lg:text-[32px]
@@ -297,31 +298,45 @@ export default function Hero() {
     text-black
   "
               >
-                Partnering with Mercedes Benz 
-                <span className="text-black/50"> enables us to</span>
+                German Engineering, Timeless Performance
+                <span className="text-black/50"></span>
               </h2>
 
-              <div className="mt-5 space-y-4">
-                <p className="section-paragraph">
-                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
-                  thanks to specially designed elements on the front and rear ends,
-                  such as the air inlets, diffuser and exhaust tailpipes. The Audi
-                  rings in 2D look are also distinguishing features of this vehicle’s
-                  characteristic design language.
+
+              <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-black/100">
+                <p>
+                  German car brands have earned a global reputation for engineering
+                  excellence, cutting-edge technology, and timeless design. Renowned for
+                  their precision craftsmanship and exceptional performance, brands such
+                  as Mercedes-Benz, BMW, Porsche, Audi, and Volkswagen continue to set
+                  benchmarks in luxury, innovation, and driving dynamics.
                 </p>
 
-                <p className="section-paragraph">
-                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
-                  thanks to specially designed elements on the front and rear ends.
-                  Look forward to high ride comfort and sporty handling and
-                  technologies to enhance dynamic performance combined with an
-                  extremely powerful V8 TFSI engine.
+
+                <p>
+                  From high-performance sports cars and premium sedans to advanced
+                  electric vehicles, German manufacturers combine heritage with modern
+                  innovation to deliver vehicles that offer superior comfort, safety, and
+                  reliability. Their commitment to quality and continuous innovation has
+                  made German automobiles a symbol of prestige and excellence worldwide.
                 </p>
 
-                <p className="section-paragraph">
-                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
-                  thanks to specially designed elements on the front and rear ends.
+                <p>
+                  From high-performance sports cars and premium sedans to advanced
+                  electric vehicles, German manufacturers combine heritage with modern
+                  innovation to deliver vehicles that offer superior comfort, safety, and
+                  reliability. Their commitment to quality and continuous innovation has
+                  made German automobiles a symbol of prestige and excellence worldwide.
                 </p>
+                <p>
+                  German car brands are globally recognized for their precision engineering,
+                  luxury, and innovation. Brands like Mercedes-Benz, BMW, Porsche, Audi, and
+                  Volkswagen have set industry standards with their commitment to performance,
+                  safety, and advanced technology. Combining timeless design with cutting-edge
+                  engineering, German automobiles quality, reliability, and driving excellence
+                  admired around the world.
+                </p>
+
               </div>
 
               <button
@@ -351,7 +366,7 @@ export default function Hero() {
             </div>
 
             {/* Right */}
-            <div className="pointer-events-none select-none">
+            <div className="pointer-events-none select-none flex justify-center">
               <video
                 src="/animation.mp4"
                 autoPlay
@@ -360,7 +375,7 @@ export default function Hero() {
                 preload="auto"
                 disablePictureInPicture
                 controlsList="nodownload nofullscreen noremoteplayback"
-                className="w-full object-contain"
+                className="w-full max-w-[800px] object-contain"
                 style={{
                   WebkitUserSelect: "none",
                   userSelect: "none",
