@@ -44,13 +44,13 @@ export default function Footer() {
                     {/* Car */}
                     <div className="relative flex justify-center lg:justify-end">
                         {/* Background Text */}
-                        <div className="absolute inset-0 flex items-center justify-center lg:justify-end pointer-events-none">
+                        {/* <div className="absolute inset-0 flex items-center justify-center lg:justify-end pointer-events-none">
                             <span className=" text-[125px] md:text-[150px] lg:text-[240px] font-bold text-white/5 tracking-tight leading-none select-none">
                                 GT4
                             </span>
-                        </div>
+                        </div> */}
                         <Image
-                            src="/porsche-model 1.png"
+                            src="/porsche-model.png"
                             alt="Porsche"
                             width={1600}
                             height={700}
