@@ -276,7 +276,7 @@ export default function Hero() {
 
 
       {/* About Section */}
-      <section className=" py-10 px-5 lg:py-10">
+      <section className=" py-5 px-5 lg:py-5">
         <div className="mx-auto max-w-8xl ">
 
           {/* Top Content */}
@@ -286,23 +286,22 @@ export default function Hero() {
             <div>
               <h2
                 className="
-    text-[40px]
-    sm:text-[48px]
-    md:text-[56px]
-    lg:text-[40px]
-    xl:text-[88px]
-    2xl:text-[28px]
+    text-[28px]
+    sm:text-[36px]
+    md:text-[44px]
+    lg:text-[32px]
+    xl:text-[30px]
     leading-[1.05]
     font-light
     tracking-[-0.04em]
     text-black
   "
               >
-                Partnering with Mercedes Benz{" "}
-                <span className="text-black/50">enables us to</span>
+                Partnering with Mercedes Benz 
+                <span className="text-black/50"> enables us to</span>
               </h2>
 
-              <div className="mt-8 space-y-8">
+              <div className="mt-5 space-y-4">
                 <p className="section-paragraph">
                   The Audi SQ8 SUV¹ stands out not only for its performance, but also
                   thanks to specially designed elements on the front and rear ends,
@@ -318,20 +317,26 @@ export default function Hero() {
                   technologies to enhance dynamic performance combined with an
                   extremely powerful V8 TFSI engine.
                 </p>
+
+                <p className="section-paragraph">
+                  The Audi SQ8 SUV¹ stands out not only for its performance, but also
+                  thanks to specially designed elements on the front and rear ends.
+                </p>
               </div>
 
               <button
                 className="
-    mt-8
+    mt-6 md:mt-8
     group
     inline-flex
     items-center
-    gap-1.5
+    gap-1 sm:gap-1.5
     rounded-full
     border border-black
-    px-6
-    py-3
-    text-base
+    px-4 py-2
+    sm:px-5 sm:py-2.5
+    lg:px-6 lg:py-3
+    text-sm sm:text-base
     transition-all duration-300
     hover:bg-black
     hover:text-white
@@ -339,21 +344,27 @@ export default function Hero() {
               >
                 Learn More
                 <ChevronsRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  size={14}
+                  className="sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1"
                 />
               </button>
             </div>
 
             {/* Right */}
-            <div>
+            <div className="pointer-events-none select-none">
               <video
-                src="/video.mp4"
+                src="/animation.mp4"
                 autoPlay
                 muted
                 playsInline
                 preload="auto"
+                disablePictureInPicture
+                controlsList="nodownload nofullscreen noremoteplayback"
                 className="w-full object-contain"
+                style={{
+                  WebkitUserSelect: "none",
+                  userSelect: "none",
+                }}
               />
             </div>
           </div>

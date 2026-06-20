@@ -30,13 +30,12 @@ export default function Footer() {
                         {/* Description */}
                         <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-white/70">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.
+                                Where German luxury meets precision and performance. Discover a world inspired by Mercedes-Benz, BMW, Audi, and Porsche, crafted for enthusiasts who appreciate excellence.
+                                Where German luxury meets precision and performance. Discover a world inspired by Mercedes-Benz, BMW, Audi, and Porsche, delivering iconic design, cutting-edge technology, and an uncompromising passion for driving excellence.
                             </p>
 
                             <p>
-                                It is a long established fact that a reader will be distracted
-                                by the readable content of a page when looking at its layout.
+                                Connect with us to explore the finest in German automotive excellence. Our team is here to assist you with any inquiries and provide a premium experience.
                             </p>
                         </div>
                     </div>
