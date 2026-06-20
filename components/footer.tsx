@@ -45,18 +45,16 @@ export default function Footer() {
                     <div className="relative flex justify-center lg:justify-end">
                         {/* Background Text */}
                         <div className="absolute inset-0 flex items-center justify-center lg:justify-end pointer-events-none">
-                            <span className=" text-[125px] md:text-[150px] lg:text-[250px] font-bold text-white/5 tracking-tight leading-none select-none">
+                            <span className=" text-[125px] md:text-[150px] lg:text-[240px] font-bold text-white/5 tracking-tight leading-none select-none">
                                 GT4
                             </span>
                         </div>
-
-                        {/* Car Image */}
                         <Image
-                            src="/porsche-1..png"
+                            src="/porsche-model 1.png"
                             alt="Porsche"
-                            width={700}
-                            height={280}
-                            className="relative z-10 w-full max-w-[700px] h-auto object-contain"
+                            width={1600}
+                            height={700}
+                            className="relative z-10 w-full max-w-[700px] lg:w-[1200px] xl:w-[1400px] h-auto object-contain"
                         />
                     </div>
                 </div>

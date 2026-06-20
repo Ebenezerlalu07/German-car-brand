@@ -347,11 +347,12 @@ export default function Hero() {
 
             {/* Right */}
             <div>
-              <Image
-                src="/Premium-car.png"
-                alt="Exploded Car"
-                width={900}
-                height={700}
+              <video
+                src="/video.mp4"
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
                 className="w-full object-contain"
               />
             </div>

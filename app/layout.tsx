@@ -8,6 +8,10 @@ import Footer from "@/components/footer";
 
 
 
+
+
+
+
 const michroma = Michroma({
   subsets: ["latin"],
   weight: "400",
