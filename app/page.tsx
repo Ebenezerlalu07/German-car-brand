@@ -260,14 +260,7 @@ export default function Hero() {
                 <FaLinkedinIn />
               </div>
 
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("next-section")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="ml-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md"
-              >
+              <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md">
                 <ChevronDown size={18} />
               </button>
             </div>
@@ -355,7 +348,7 @@ export default function Hero() {
             {/* Right */}
             <div>
               <Image
-                src="/Porsche-parts.png"
+                src="/Premium-car.png"
                 alt="Exploded Car"
                 width={900}
                 height={700}
