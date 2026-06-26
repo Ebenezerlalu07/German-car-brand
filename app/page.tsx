@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 
@@ -78,7 +79,6 @@ export default function Hero() {
 
 
       {/* Hero Section */}
-
       <section className="relative min-h-[100svh] overflow-hidden">
 
         {/* Background */}
@@ -382,7 +382,6 @@ export default function Hero() {
 
 
       {/* German Cars Section */}
-
       <section className="px-5 py-10 md:py-14 lg:py-16">
         <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5 lg:grid-cols-[38%_62%]">
 
@@ -399,30 +398,30 @@ export default function Hero() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
+              {/* Top Right Arrow */}
+              <div className="absolute top-5 right-5 z-20">
+                <button
+                  className="
+        flex h-12 w-12 items-center justify-center
+        rounded-full bg-white/100 text-black/80
+        transition-all duration-300
+        hover:scale-100
+      "
+                >
+                  <ArrowUpRight size={24} strokeWidth={2} />
+                </button>
+              </div>
+
               <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8 text-white">
 
-                <h3
-                  className="
-            mb-3
-text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl
-          "
-                >
+                <h3 className="mb-3 text-xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl">
                   15+ German Brands
                 </h3>
 
-                <p
-                  className="
-            max-w-md
-            text-[12px]
-            sm:text-[13px]
-            lg:text-[14px]
-            leading-relaxed
-            text-white/90
-          "
-                >
+                <p className="max-w-md text-[12px] sm:text-[13px] lg:text-[14px] leading-relaxed text-white/90">
                   Discover the excellence of German automotive engineering
                   through a curated collection of premium brands renowned
-                  for luxury
+                  for luxury.
                 </p>
 
               </div>
