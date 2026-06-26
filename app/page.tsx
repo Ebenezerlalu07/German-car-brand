@@ -362,6 +362,7 @@ export default function Hero() {
                   src="/animation.mp4"
                   autoPlay
                   muted
+                  loop
                   playsInline
                   preload="auto"
                   disablePictureInPicture
