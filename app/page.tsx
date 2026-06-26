@@ -18,6 +18,9 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
+
+
+
 export default function Hero() {
   const slides = [
     {
@@ -274,7 +277,7 @@ export default function Hero() {
 
       {/* About Section */}
       <section className=" px-5 py-3">
-        <div className="mx-auto max-w-8xl ">
+        <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5">
 
           {/* Top Content */}
           <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -282,17 +285,7 @@ export default function Hero() {
             {/* Left */}
             <div>
               <h2
-                className=" py-3
-    text-[20px]
-    leading-tight
-    sm:text-[36px]
-    md:text-[44px]
-    lg:text-[32px]
-    xl:text-[30px]
-    leading-[1.05]
-    font-light
-    tracking-[-0.04em]
-    text-black
+                className="py-3 text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-black/100
   "
               >
                 German Engineering, Timeless Performance
@@ -336,8 +329,8 @@ export default function Hero() {
 
               </div>
 
-<button
-  className="
+              <button
+                className="
     mt-6 md:mt-8
     group
     inline-flex
@@ -352,10 +345,10 @@ export default function Hero() {
     hover:bg-black
     hover:text-white
   "
->
-  <span>Learn More</span>
+              >
+                <span>Learn More</span>
 
-</button>
+              </button>
             </div>
 
             {/* Right */}
@@ -383,11 +376,92 @@ export default function Hero() {
       </section>
 
 
+      {/* German Cars Section */}
+      <section className="px-5 py-10 md:py-14 lg:py-16">
+        <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5 lg:grid-cols-[38%_62%]">
 
+          {/* Left Card */}
+          <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
 
+            <Image
+              src="/Girl in car.jpg"
+              alt="German Brands"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
 
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
+            <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8 text-white">
 
+              <h3
+                className="
+            mb-3
+text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl
+          "
+              >
+                15+ German Brands
+              </h3>
+
+              <p
+                className="
+            max-w-md
+            text-[12px]
+            sm:text-[13px]
+            lg:text-[14px]
+            leading-relaxed
+            text-white/90
+          "
+              >
+                Discover the excellence of German automotive engineering
+                through a curated collection of premium brands renowned
+                for luxury
+              </p>
+
+            </div>
+          </div>
+
+          {/* Right Card */}
+          <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
+
+            <Image
+              src="/Girl in car 1.jpg"
+              alt="Luxury"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+            <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8">
+
+              <h2
+                className="
+            max-w-5xl
+            text-white
+            font-light
+            tracking-tight
+            leading-[1.05]
+
+            text-[28px]
+            sm:text-[38px]
+            md:text-[48px]
+            lg:text-[56px]
+            xl:text-[64px]
+          "
+              >
+                Luxury Beyond Limits,
+                <br />
+                Performance Beyond
+                <br />
+                Expectations
+              </h2>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
 
 
 
