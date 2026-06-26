@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import FadeIn from "@/components/FadeIn";
 
 
 import {
@@ -44,6 +45,8 @@ export default function Hero() {
       description:
         "Partnering with Porsche creates opportunities for advanced mobility and innovation.",
     },
+
+
   ];
 
 
@@ -75,6 +78,7 @@ export default function Hero() {
 
 
       {/* Hero Section */}
+
       <section className="relative min-h-[100svh] overflow-hidden">
 
         {/* Background */}
@@ -276,61 +280,62 @@ export default function Hero() {
 
 
       {/* About Section */}
-      <section className=" px-5 py-3">
-        <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5">
+      <FadeIn>
+        <section className=" px-5 py-3">
+          <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5">
 
-          {/* Top Content */}
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+            {/* Top Content */}
+            <div className="grid items-center gap-14 lg:grid-cols-2">
 
-            {/* Left */}
-            <div>
-              <h2
-                className="py-3 text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-black/100
+              {/* Left */}
+              <div>
+                <h2
+                  className="py-3 text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-black/100
   "
-              >
-                German Engineering, Timeless Performance
-                <span className="text-black/50"></span>
-              </h2>
+                >
+                  German Engineering, Timeless Performance
+                  <span className="text-black/50"></span>
+                </h2>
 
 
-              <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-black/100">
-                <p>
-                  German car brands have earned a global reputation for engineering
-                  excellence, cutting-edge technology, and timeless design. Renowned for
-                  their precision craftsmanship and exceptional performance, brands such
-                  as Mercedes-Benz, BMW, Porsche, Audi, and Volkswagen continue to set
-                  benchmarks in luxury, innovation, and driving dynamics.
-                </p>
+                <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-black/100">
+                  <p>
+                    German car brands have earned a global reputation for engineering
+                    excellence, cutting-edge technology, and timeless design. Renowned for
+                    their precision craftsmanship and exceptional performance, brands such
+                    as Mercedes-Benz, BMW, Porsche, Audi, and Volkswagen continue to set
+                    benchmarks in luxury, innovation, and driving dynamics.
+                  </p>
 
 
-                <p>
-                  From high-performance sports cars and premium sedans to advanced
-                  electric vehicles, German manufacturers combine heritage with modern
-                  innovation to deliver vehicles that offer superior comfort, safety, and
-                  reliability. Their commitment to quality and continuous innovation has
-                  made German automobiles a symbol of prestige and excellence worldwide.
-                </p>
+                  <p>
+                    From high-performance sports cars and premium sedans to advanced
+                    electric vehicles, German manufacturers combine heritage with modern
+                    innovation to deliver vehicles that offer superior comfort, safety, and
+                    reliability. Their commitment to quality and continuous innovation has
+                    made German automobiles a symbol of prestige and excellence worldwide.
+                  </p>
 
-                <p>
-                  From high-performance sports cars and premium sedans to advanced
-                  electric vehicles, German manufacturers combine heritage with modern
-                  innovation to deliver vehicles that offer superior comfort, safety, and
-                  reliability. Their commitment to quality and continuous innovation has
-                  made German automobiles a symbol of prestige and excellence worldwide.
-                </p>
-                <p>
-                  German car brands are globally recognized for their precision engineering,
-                  luxury, and innovation. Brands like Mercedes-Benz, BMW, Porsche, Audi, and
-                  Volkswagen have set industry standards with their commitment to performance,
-                  safety, and advanced technology. Combining timeless design with cutting-edge
-                  engineering, German automobiles quality, reliability, and driving excellence
-                  admired around the world.
-                </p>
+                  <p>
+                    From high-performance sports cars and premium sedans to advanced
+                    electric vehicles, German manufacturers combine heritage with modern
+                    innovation to deliver vehicles that offer superior comfort, safety, and
+                    reliability. Their commitment to quality and continuous innovation has
+                    made German automobiles a symbol of prestige and excellence worldwide.
+                  </p>
+                  <p>
+                    German car brands are globally recognized for their precision engineering,
+                    luxury, and innovation. Brands like Mercedes-Benz, BMW, Porsche, Audi, and
+                    Volkswagen have set industry standards with their commitment to performance,
+                    safety, and advanced technology. Combining timeless design with cutting-edge
+                    engineering, German automobiles quality, reliability, and driving excellence
+                    admired around the world.
+                  </p>
 
-              </div>
+                </div>
 
-              <button
-                className="
+                <button
+                  className="
     mt-6 md:mt-8
     group
     inline-flex
@@ -345,66 +350,68 @@ export default function Hero() {
     hover:bg-black
     hover:text-white
   "
-              >
-                <span>Learn More</span>
+                >
+                  <span>Learn More</span>
 
-              </button>
+                </button>
+              </div>
+
+              {/* Right */}
+              <div className="pointer-events-none select-none flex justify-center">
+                <video
+                  src="/animation.mp4"
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="auto"
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  className="w-full max-w-[800px] object-contain"
+                  style={{
+                    WebkitUserSelect: "none",
+                    userSelect: "none",
+                  }}
+                />
+              </div>
             </div>
 
-            {/* Right */}
-            <div className="pointer-events-none select-none flex justify-center">
-              <video
-                src="/animation.mp4"
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                disablePictureInPicture
-                controlsList="nodownload nofullscreen noremoteplayback"
-                className="w-full max-w-[800px] object-contain"
-                style={{
-                  WebkitUserSelect: "none",
-                  userSelect: "none",
-                }}
-              />
-            </div>
+
+
           </div>
-
-
-
-        </div>
-      </section>
+        </section></FadeIn>
 
 
       {/* German Cars Section */}
+
       <section className="px-5 py-10 md:py-14 lg:py-16">
         <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5 lg:grid-cols-[38%_62%]">
 
           {/* Left Card */}
-          <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
+          <FadeIn>
+            <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
 
-            <Image
-              src="/Girl in car.jpg"
-              alt="German Brands"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+              <Image
+                src="/Girl in car.jpg"
+                alt="German Brands"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-            <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8 text-white">
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8 text-white">
 
-              <h3
-                className="
+                <h3
+                  className="
             mb-3
 text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl
           "
-              >
-                15+ German Brands
-              </h3>
+                >
+                  15+ German Brands
+                </h3>
 
-              <p
-                className="
+                <p
+                  className="
             max-w-md
             text-[12px]
             sm:text-[13px]
@@ -412,31 +419,32 @@ text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl
             leading-relaxed
             text-white/90
           "
-              >
-                Discover the excellence of German automotive engineering
-                through a curated collection of premium brands renowned
-                for luxury
-              </p>
+                >
+                  Discover the excellence of German automotive engineering
+                  through a curated collection of premium brands renowned
+                  for luxury
+                </p>
 
-            </div>
-          </div>
+              </div>
+            </div></FadeIn>
 
           {/* Right Card */}
-          <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
+          <FadeIn>
+            <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
 
-            <Image
-              src="/Girl in car 1.jpg"
-              alt="Luxury"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+              <Image
+                src="/Girl in car 1.jpg"
+                alt="Luxury"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-            <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8">
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8">
 
-              <h2
-                className="
+                <h2
+                  className="
             max-w-5xl
             text-white
             font-light
@@ -449,16 +457,16 @@ text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl
             lg:text-[56px]
             xl:text-[64px]
           "
-              >
-                Luxury Beyond Limits,
-                <br />
-                Performance Beyond
-                <br />
-                Expectations
-              </h2>
+                >
+                  Luxury Beyond Limits,
+                  <br />
+                  Performance Beyond
+                  <br />
+                  Expectations
+                </h2>
 
-            </div>
-          </div>
+              </div>
+            </div></FadeIn>
 
         </div>
       </section>
