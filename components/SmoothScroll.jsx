@@ -11,12 +11,13 @@ export default function SmoothScroll() {
 
             // Desktop
             smoothWheel: true,
-            wheelMultiplier: 0.7,
+            wheelMultiplier: 0.3,
 
             // Mobile
             syncTouch: true,
             syncTouchLerp: 0.08,
             touchMultiplier: 1,
+            wheelMultiplier: 0.3,
         });
 
         let rafId;
