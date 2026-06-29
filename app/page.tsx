@@ -73,7 +73,7 @@ export default function Hero() {
     { name: "BMW", logo: "/bmw-logo.png" },
     { name: "Porsche", logo: "/porsche-logo.png" },
     { name: "Volkswagen", logo: "/Volkswagen-logo.png" },
-    { name: "Alpina", logo: "/alpina-logo.png" },
+    { name: "Alpina", logo: "/Alpina-Logo.png" },
 
   ];
 
