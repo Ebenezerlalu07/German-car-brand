@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
@@ -20,11 +22,22 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
+import {
+  Car,
+  Wrench,
+  ShieldCheck,
+  Handshake,
+  Settings,
+  Headset,
+} from "lucide-react";
+
 
 
 
 export default function Hero() {
+
   const slides = [
+
     {
       image: "/benz-hero.jpg",
       logo: "/benz-logo.png",
@@ -48,10 +61,21 @@ export default function Hero() {
     },
 
 
+
   ];
 
 
 
+
+  const brands = [
+    { name: "Audi", logo: "/audi-logo.png" },
+    { name: "Mercedes-Benz", logo: "/benz-logo.png" },
+    { name: "BMW", logo: "/bmw-logo.png" },
+    { name: "Porsche", logo: "/porsche-logo.png" },
+    { name: "Volkswagen", logo: "/Volkswagen-logo.png" },
+    { name: "Alpina", logo: "/alpina-logo.png" },
+
+  ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -72,6 +96,19 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const parallaxRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [-150, 150]);
+
+  const contentY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.6, 1, 1, 0.6]);
 
   return (
     <>
@@ -472,7 +509,450 @@ export default function Hero() {
       </section>
 
 
+      {/* Logo Section */}
+      <section className="relative overflow-hidden py-5 md:py-16 lg:py-10">
 
+        {/* Background Glow */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute left-1/2 top-0 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[#8B7355]/10 blur-[120px] md:h-[450px] md:w-[450px]" />
+          <div className="absolute -left-24 bottom-0 h-60 w-60 rounded-full bg-slate-400/10 blur-[100px] md:h-80 md:w-80" />
+          <div className="absolute -right-20 top-20 h-60 w-60 rounded-full bg-[#8B7355]/10 blur-[100px] md:h-72 md:w-72" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8">
+
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .7 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-10 max-w-3xl text-center md:mb-16"
+          >
+
+            <span className="inline-block rounded-full border border-[#8B7355]/20 bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[4px] text-[#5C4632] shadow-sm">
+              Premium Collection
+            </span>
+
+            <h2 className="mt-5 text-2xl font-semibold text-[#1f2937] sm:text-3xl md:text-4xl lg:text-5xl">
+              Discover Our Brands
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base md:text-lg">
+              Explore Germany's most iconic automotive manufacturers renowned for engineering excellence, innovation and timeless luxury.
+            </p>
+
+            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-[#5C4632] via-[#8B7355] to-slate-700" />
+
+          </motion.div>
+
+          {/* Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: .08,
+                },
+              },
+            }}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4 xl:grid-cols-6"
+          >
+
+            {brands.map((brand) => (
+              <motion.div
+                key={brand.name}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 30,
+                    scale: .95,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  },
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
+                transition={{
+                  duration: .4,
+                }}
+                className="
+            group
+            relative
+            overflow-hidden
+            rounded-2xl
+            border
+            border-gray-200
+            bg-white/90
+            p-4
+            sm:p-5
+            lg:p-6
+            backdrop-blur-xl
+            transition-all
+            duration-500
+            hover:border-[#8B7355]/40
+            hover:shadow-[0_20px_50px_rgba(0,0,0,.12)]
+          "
+              >
+
+                {/* Hover Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8B7355]/5 via-transparent to-slate-700/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+                {/* Glow */}
+                <div className="absolute inset-0 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100">
+                  <div className="h-full w-full rounded-full bg-[#8B7355]/10" />
+                </div>
+
+                {/* Shine */}
+                <div className="absolute -left-24 top-0 h-full w-12 rotate-12 bg-white/40 blur-md transition-all duration-1000 group-hover:left-[140%]" />
+
+                {/* Logo */}
+                <div className="relative flex h-16 items-center justify-center sm:h-20 md:h-24">
+
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={150}
+                    height={80}
+                    className="
+                h-10
+                sm:h-12
+                md:h-14
+                lg:h-16
+                w-auto
+                object-contain
+                transition-all
+                duration-500
+                group-hover:scale-110
+              "
+                  />
+
+                </div>
+
+                {/* Divider */}
+                <div className="mx-auto mt-4 h-px w-8 bg-gradient-to-r from-transparent via-[#8B7355] to-transparent opacity-0 transition-all duration-500 group-hover:w-16 group-hover:opacity-100" />
+
+                {/* Brand */}
+                <h3 className="
+            mt-4
+            text-center
+            text-[11px]
+            font-semibold
+            uppercase
+            tracking-[2px]
+            text-gray-700
+            transition
+            duration-300
+            sm:text-xs
+            md:text-sm
+            group-hover:text-[#5C4632]
+          ">
+                  {brand.name}
+                </h3>
+
+              </motion.div>
+            ))}
+
+          </motion.div>
+
+        </div>
+
+      </section>
+
+      {/* parlx Section */}
+      <section
+        ref={parallaxRef}
+        className="relative min-h-[750px] overflow-hidden py-20 lg:h-[850px] lg:py-0"
+      >
+        {/* Background */}
+        <motion.div
+          style={{ y: backgroundY }}
+          className="absolute inset-0 scale-110"
+        >
+          <Image
+            src="/rs7.jpg"
+            alt="Luxury Car"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/80" />
+
+        {/* Bronze Glow */}
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#8B7355]/20 blur-[130px] md:h-[450px] md:w-[450px]" />
+
+        {/* Background Text */}
+        <motion.h1
+          animate={{ x: ["0%", "-35%"] }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="pointer-events-none absolute top-1/2 hidden -translate-y-1/2 whitespace-nowrap text-[180px] font-black uppercase tracking-[18px] text-white/[0.04] xl:block xl:text-[240px]"
+        >
+          MERCEDES • BMW • AUDI • PORSCHE • MERCEDES • BMW • AUDI • PORSCHE
+        </motion.h1>
+
+        <div className="relative z-20 mx-auto flex min-h-[750px] max-w-[1800px] items-center px-5 py-12 sm:px-8 lg:min-h-[850px] lg:py-0">
+
+          <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: .8 }}
+              viewport={{ once: true }}
+              className="order-2 text-center lg:order-1 lg:text-left"
+            >
+              <span className="inline-flex rounded-full border border-[#8B7355]/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[4px] text-[#B79A74] backdrop-blur sm:text-xs">
+                German Engineering
+              </span>
+
+              <h2 className="mt-6 text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                Driven by
+                <br />
+                <span className="text-[#B79A74]">
+                  Precision &
+                  <br className="hidden sm:block" />
+                  Luxury
+                </span>
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-300 sm:text-base md:text-lg lg:mx-0 lg:mt-8">
+                Experience legendary German engineering, iconic design,
+                and performance that defines the world's most prestigious
+                automotive brands.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+
+                <button className="w-full rounded-full bg-[#8B7355] px-8 py-3 font-medium text-white transition hover:bg-[#6E5943] sm:w-auto lg:py-4">
+                  Explore Collection
+                </button>
+
+                <button className="w-full rounded-full border border-white/20 px-8 py-3 font-medium text-white backdrop-blur transition hover:bg-white hover:text-black sm:w-auto lg:py-4">
+                  Contact Us
+                </button>
+
+              </div>
+            </motion.div>
+
+            {/* Glass Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: .2, duration: .8 }}
+              viewport={{ once: true }}
+              className="order-1 mx-auto w-full max-w-xs rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur-xl sm:max-w-sm sm:p-8 lg:order-2 lg:ml-auto"
+            >
+              <p className="text-xs uppercase tracking-[4px] text-[#B79A74]">
+                Heritage
+              </p>
+
+              <h3 className="mt-3 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+                1886
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-gray-300 sm:text-base">
+                More than a century of precision engineering, innovation,
+                and timeless automotive craftsmanship.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 sm:gap-6">
+
+                <div>
+                  <h4 className="text-2xl font-bold text-white sm:text-3xl">
+                    6+
+                  </h4>
+                  <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+                    Luxury Brands
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-bold text-white sm:text-3xl">
+                    100+
+                  </h4>
+                  <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+                    Premium Models
+                  </p>
+                </div>
+
+              </div>
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+    {/* Service Section */}
+      <section className="relative overflow-hidden bg-[#f8f8f8] py-20 lg:py-28">
+
+        {/* Background Glow */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#8B7355]/10 blur-[150px]" />
+          <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-slate-300/20 blur-[180px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1800px] px-5">
+
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .8 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-16 max-w-3xl text-center"
+          >
+            <span className="rounded-full border border-[#8B7355]/20 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[4px] text-[#8B7355]">
+              Premium Services
+            </span>
+
+            <h2 className="mt-6 text-3xl font-semibold text-[#1f2937] sm:text-4xl lg:text-5xl">
+              Exceptional Automotive Services
+            </h2>
+
+            <p className="mt-5 text-gray-500">
+              Experience world-class automotive solutions inspired by German
+              engineering, innovation, and luxury craftsmanship.
+            </p>
+          </motion.div>
+
+          <div className="grid items-center gap-12 lg:grid-cols-[45%_55%]">
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: .8 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-[35px]"
+            >
+              <Image
+                src="/Cargirl.jpg"
+                alt="Luxury Services"
+                width={900}
+                height={900}
+                className="h-[350px] w-full object-cover transition duration-700 group-hover:scale-110 md:h-[500px] lg:h-[700px]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              <div className="absolute bottom-8 left-8 right-8">
+
+                <h3 className="text-3xl font-semibold text-white">
+                  Precision Meets Luxury
+                </h3>
+
+                <p className="mt-4 max-w-md text-gray-300">
+                  Delivering premium automotive experiences through
+                  engineering excellence and personalized service.
+                </p>
+
+              </div>
+
+            </motion.div>
+
+            {/* Service Cards */}
+            <div className="grid gap-5 sm:grid-cols-2">
+
+              {[
+                {
+                  number: "01",
+                  title: "Luxury Sales",
+                  desc: "Premium German vehicles with personalized consultation."
+                },
+                {
+                  number: "02",
+                  title: "Maintenance",
+                  desc: "Expert servicing using genuine manufacturer parts."
+                },
+                {
+                  number: "03",
+                  title: "Performance",
+                  desc: "Enhance driving dynamics with bespoke upgrades."
+                },
+                {
+                  number: "04",
+                  title: "Brand Partnerships",
+                  desc: "Strategic collaborations with world-renowned brands."
+                },
+              ].map((item, index) => (
+
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: index * .15,
+                    duration: .6
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02
+                  }}
+                  className="group rounded-[28px] border border-white bg-white p-7 shadow-sm transition-all duration-500 hover:border-[#8B7355]/30 hover:shadow-2xl"
+                >
+
+                  <span className="text-5xl font-black text-[#8B7355]/20">
+                    {item.number}
+                  </span>
+
+                  <h3 className="mt-4 text-xl font-semibold text-[#1f2937] transition group-hover:text-[#8B7355]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-gray-500">
+                    {item.desc}
+                  </p>
+
+                <button
+                  className="
+    mt-6 md:mt-8
+    group
+    inline-flex
+    items-center
+    gap-1
+    whitespace-nowrap
+    rounded-full
+    border border-black
+    px-4 py-2
+    text-xs sm:text-sm
+    transition-all duration-300
+    hover:bg-black
+    hover:text-white
+  "
+                >
+                  <span>Learn More</span>
+
+                </button>
+
+                </motion.div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
     </>
   );
 }
