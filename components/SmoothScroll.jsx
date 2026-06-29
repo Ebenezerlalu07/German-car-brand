@@ -8,6 +8,8 @@ export default function SmoothScroll() {
         const lenis = new Lenis({
             duration: 2,
             lerp: 0.08,
+
+            // Desktop
             smoothWheel: true,
             wheelMultiplier: 0.7,
 
@@ -17,14 +19,19 @@ export default function SmoothScroll() {
             touchMultiplier: 1,
         });
 
+        let rafId;
+
         function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
+            lenis.raf(time); // Automatically uses the device refresh rate (60Hz/90Hz/120Hz/144Hz)
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
 
-        return () => lenis.destroy();
+        return () => {
+            cancelAnimationFrame(rafId);
+            lenis.destroy();
+        };
     }, []);
 
     return null;

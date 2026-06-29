@@ -410,7 +410,6 @@ export default function Hero() {
                   src="/animation.mp4"
                   autoPlay
                   muted
-                  loop
                   playsInline
                   preload="auto"
                   disablePictureInPicture
@@ -880,51 +879,37 @@ export default function Hero() {
 
             {/* Service Cards */}
             <div className="grid gap-5 sm:grid-cols-2">
-
               {[
                 {
                   number: "01",
                   title: "Luxury Sales",
-                  desc: "Premium German vehicles with personalized consultation."
+                  desc: "Premium German vehicles with personalized consultation.",
                 },
                 {
                   number: "02",
                   title: "Maintenance",
-                  desc: "Expert servicing using genuine manufacturer parts."
+                  desc: "Expert servicing using genuine manufacturer parts.",
                 },
                 {
                   number: "03",
                   title: "Performance",
-                  desc: "Enhance driving dynamics with bespoke upgrades."
+                  desc: "Enhance driving dynamics with bespoke upgrades.",
                 },
                 {
                   number: "04",
                   title: "Brand Partnerships",
-                  desc: "Strategic collaborations with world-renowned brands."
+                  desc: "Strategic collaborations with world-renowned brands.",
                 },
-              ].map((item, index) => (
-
-                <motion.div
+              ].map((item) => (
+                <div
                   key={item.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: index * .15,
-                    duration: .6
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.02
-                  }}
-                  className="group rounded-[28px] border border-white bg-white p-7 shadow-sm transition-all duration-500 hover:border-[#8B7355]/30 hover:shadow-2xl"
+                  className="group rounded-[28px] border border-white bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#8B7355]/30 hover:shadow-2xl"
                 >
-
                   <span className="text-5xl font-black text-[#8B7355]/20">
                     {item.number}
                   </span>
 
-                  <h3 className="mt-4 text-xl font-semibold text-[#1f2937] transition group-hover:text-[#8B7355]">
+                  <h3 className="mt-4 text-xl font-semibold text-[#1f2937] transition-colors duration-300 group-hover:text-[#8B7355]">
                     {item.title}
                   </h3>
 
@@ -934,29 +919,24 @@ export default function Hero() {
 
                   <button
                     className="
-    mt-6 md:mt-8
-    group
-    inline-flex
-    items-center
-    gap-1
-    whitespace-nowrap
-    rounded-full
-    border border-black
-    px-4 py-2
-    text-xs sm:text-sm
-    transition-all duration-300
-    hover:bg-black
-    hover:text-white
-  "
+          mt-6 md:mt-8
+          inline-flex
+          items-center
+          gap-1
+          whitespace-nowrap
+          rounded-full
+          border border-black
+          px-4 py-2
+          text-xs sm:text-sm
+          transition-all duration-300
+          hover:bg-black
+          hover:text-white
+        "
                   >
                     <span>Learn More</span>
-
                   </button>
-
-                </motion.div>
-
+                </div>
               ))}
-
             </div>
 
           </div>
