@@ -6,10 +6,15 @@ import Lenis from "lenis";
 export default function SmoothScroll() {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.8, // increase for slower scrolling
+            duration: 2,
+            lerp: 0.08,
             smoothWheel: true,
-            wheelMultiplier: 0.8,
-            touchMultiplier: 1.5,
+            wheelMultiplier: 0.7,
+
+            // Mobile
+            syncTouch: true,
+            syncTouchLerp: 0.08,
+            touchMultiplier: 1,
         });
 
         function raf(time) {
@@ -19,9 +24,7 @@ export default function SmoothScroll() {
 
         requestAnimationFrame(raf);
 
-        return () => {
-            lenis.destroy();
-        };
+        return () => lenis.destroy();
     }, []);
 
     return null;

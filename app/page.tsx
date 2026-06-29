@@ -303,9 +303,20 @@ export default function Hero() {
                 <FaXTwitter />
                 <FaLinkedinIn />
               </div>
-
-              <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md">
-                <ChevronDown size={18} />
+              <button
+                onClick={() => {
+                  document.getElementById("about")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-white/10"
+                aria-label="Scroll down"
+              >
+                <ChevronDown
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-y-1"
+                />
               </button>
             </div>
 
@@ -318,7 +329,7 @@ export default function Hero() {
 
       {/* About Section */}
       <FadeIn>
-        <section className=" px-5 py-3">
+        <section className=" px-5 py-3" id="about">
           <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5">
 
             {/* Top Content */}
@@ -799,7 +810,7 @@ export default function Hero() {
         </div>
       </section>
 
-    {/* Service Section */}
+      {/* Service Section */}
       <section className="relative overflow-hidden bg-[#f8f8f8] py-20 lg:py-28">
 
         {/* Background Glow */}
@@ -921,8 +932,8 @@ export default function Hero() {
                     {item.desc}
                   </p>
 
-                <button
-                  className="
+                  <button
+                    className="
     mt-6 md:mt-8
     group
     inline-flex
@@ -937,10 +948,10 @@ export default function Hero() {
     hover:bg-black
     hover:text-white
   "
-                >
-                  <span>Learn More</span>
+                  >
+                    <span>Learn More</span>
 
-                </button>
+                  </button>
 
                 </motion.div>
 
