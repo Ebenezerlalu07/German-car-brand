@@ -14,14 +14,167 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+
 body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.fade-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.fade-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Fade Pulse */
+@keyframes fadePulse {
+  0% {
+    opacity: 0.3;
+    transform: scale3d(0.95, 0.95, 1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale3d(1.05, 1.05, 1);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: scale3d(0.95, 0.95, 1);
+  }
+}
+
+.animate-fadePulse {
+  animation: fadePulse 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Glow */
+@keyframes glow {
+  0% {
+    opacity: 0.2;
+    transform: scale3d(0.9, 0.9, 1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Progress */
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progress 5s linear forwards;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+  will-change: transform;
+}
+
+/* Car Slide */
+@keyframes car-slide {
+  from {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-car-slide {
+  animation: car-slide 1.2s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Optional */
+section {
+  width: 100%;
+  overflow-x: hidden;
+}

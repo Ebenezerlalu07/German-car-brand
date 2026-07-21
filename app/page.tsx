@@ -1,498 +1,949 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, Building2 } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
+
+
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  ChevronsRight,
+} from "lucide-react";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaXTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa6";
+
+import {
+  Car,
+  Wrench,
+  ShieldCheck,
+  Handshake,
+  Settings,
+  Headset,
+} from "lucide-react";
 
 
 
 
+export default function Hero() {
 
-const projects = [
+  const slides = [
 
-  {
-    title: "Association of Kerala Medical and Dental Graduates (AKMG)",
-    description:
-      "The AKMG Global website was designed and developed as a modern, professional digital platform for the Association of Kerala Medical and Dental Graduates (AKMG) Global, a worldwide network of medical and dental professionals of Keralan origin. The primary objective was to create a user-friendly, responsive, and visually engaging website that strengthens the organization's global presence, facilitates member engagement, and showcases its initiatives, events, and healthcare contributions. The project also includes a comprehensive Admin Panel (CMS), enabling administrators to efficiently manage website content, member information, events, news, galleries, directories, and other dynamic sections without requiring technical expertise. The platform was built with a focus on performance, scalability, security, and ease of content management, ensuring seamless administration while delivering an intuitive experience for members and visitors across all devices.",
-    image: "/AKMG.png",
-    url: "https://akmgglobal.org/",
-    category: "Figma Design & Dev",
-  },
+    {
+      image: "/benz-hero.jpg",
+      logo: "/benz-logo.png",
+      title: "Where German Luxury Automotive Brands Connect and Grow",
+      description:
+        "Partnering with Mercedes-Benz enables us to bring world-class luxury experiences.",
+    },
+    {
+      image: "/bmw-hero.jpg",
+      logo: "/bmw-logo.png",
+      title: "Driving Innovation Through Premium Automotive Partnerships",
+      description:
+        "Partnering with BMW allows us to deliver performance-driven luxury experiences.",
+    },
+    {
+      image: "/Porsche-hero.jpg",
+      logo: "/porsche-logo.png",
+      title: "Connecting Visionary Automotive Leaders Worldwide",
+      description:
+        "Partnering with Porsche creates opportunities for advanced mobility and innovation.",
+    },
 
 
-  {
-    title: "German Cars",
-    description:
-      "A premium automotive website concept designed to celebrate the excellence of German engineering. This project features a modern, responsive UI with immersive visuals, smooth animations, and an elegant user experience inspired by iconic luxury brands. The design emphasizes performance, precision, and innovation while delivering seamless navigation across all devices",
-    image: "/Germancars.png",
-    url: "https://german-car-brand.vercel.app/",
-    category: "Next.js",
-  },
 
-
-
-
-  {
-    title: "Nothing X App",
-    description:
-      "A modern mobile app concept inspired by Nothing's signature minimalist design philosophy. The interface combines a clean layout, bold typography, and intuitive interactions to create a seamless user experience. Designed with a focus on simplicity, functionality, and visual clarity, the app delivers smooth navigation, engaging micro-interactions, and a premium aesthetic while maintaining consistency across every screen. The concept emphasizes usability, modern UI trends, and a distinctive design language that reflects the innovative identity of the Nothing brand.",
-    image: "/Nothing.png",
-    url: "https://www.figma.com/proto/tfbHZIVLOe6TQsYzAA7lHD/Nothing-X?node-id=3-114&t=I8bBSKUlePmEvW6t-1",
-    category: "Figma",
-  },
+  ];
 
 
 
 
-  {
-    title: "Lexus Website Concept",
-    description:
-      "A premium website concept crafted to reflect the elegance, innovation, and performance of the Lexus brand. The design features a sophisticated user interface with immersive visuals, refined typography, and smooth animations that create a luxurious browsing experience. Built with a focus on responsive design and intuitive navigation, the website showcases vehicle collections, brand heritage, and advanced automotive technology while delivering a seamless experience across desktop, tablet, and mobile devices.",
-    image: "/Lexus.png",
-    url: "https://www.figma.com/proto/sM5fGyEGWCTDaIzvzZ5ykU/Lexus?node-id=6-248&t=pzCtHg9BBP3LeGdN-1",
-    category: "Figma",
-  },
+  const brands = [
+    { name: "Audi", logo: "/audi-logo.png" },
+    { name: "Mercedes-Benz", logo: "/benz-logo.png" },
+    { name: "BMW", logo: "/bmw-logo.png" },
+    { name: "Porsche", logo: "/porsche-logo.png" },
+    { name: "Volkswagen", logo: "/Volkswagen-logo.png" },
+    { name: "Alpina", logo: "/Alpina-Logo.png" },
 
+  ];
 
-  {
-    title: "Lays Hero Concept",
-    description:
-      "A vibrant hero section concept designed for the Lay's brand, featuring bold visuals, energetic colors, and engaging animations that instantly capture attention. The design highlights the product with a modern layout, eye-catching typography, and a playful user experience that reflects the brand's fun and youthful personality.",
-    image: "/lays.jpg",
-    url: "https://www.figma.com/proto/4nyhAc3jfiGXnnOSCWob9m/Lays-Home-Animation-Co?node-id=1-4&t=a30B0nnEG6zOJS77-1",
-    category: "Figma",
-  },
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
-  {
-    title: "Chatbot Agents",
-    description:
-      "A modern AI chatbot platform concept designed to deliver intelligent, fast, and seamless conversational experiences. The interface features a clean, user-friendly design with intuitive navigation, real-time messaging, and a scalable dashboard for managing AI agents. Focused on usability and productivity, the concept includes smart automation, conversation analytics, and responsive layouts that provide a consistent experience across desktop and mobile devices. The design emphasizes efficiency, accessibility, and a premium user experience for businesses and customer support solutions.",
-    image: "/engineering.jpg",
-    url: "https://www.figma.com/proto/b6rAaTeTuVaU9xY46vDlTH/Engineering-Aide-Web?node-id=1-2&page-id=0%3A1&starting-point-node-id=1%3A2&t=Uj98kKwKbsWX1eUF-1",
-    category: "Figma",
-  },
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  };
 
-  {
-    title: "Promised Land Appraisal",
-    description:
-      "A professional website concept designed for a real estate appraisal company, focused on trust, accuracy, and a seamless user experience. The design features a clean and modern interface with intuitive navigation, responsive layouts, and clear service presentation.",
-    image: "/Promised Land Appraisal.png",
-    url: "https://www.figma.com/proto/gcQCYLQC2KcpUbZIzGTRcg/Promised-Land-Appraisal?node-id=1-31&t=rAatuLmIZ2rEsJmd-1",
-    category: "Figma",
-  },
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
 
-  {
-    title: "Sparkfit Agency",
-    description:
-      "A premium website concept designed for Sparkfit Agency, a Dubai-based digital marketing company helping businesses grow their online presence across the UAE and beyond. The design combines modern aesthetics, strategic layouts, and engaging visuals to create a professional, conversion-focused user experience. Showcasing services including SEO, social media marketing, Google Ads, branding, web design, and performance marketing, the website is built to generate leads, strengthen brand credibility, and deliver seamless performance across desktop, tablet, and mobile devices.",
-    image: "/sparkfit..jpg",
-    url: "https://sparkfitagency.com/",
-    category: "HTMl, Bootstrap, Javascript",
-  },
+    return () => clearInterval(interval);
+  }, []);
 
-  {
-    title: "Grand Flow",
-    description:
-      "A modern corporate website concept designed for Grand Management, focused on professionalism, efficiency, and a strong digital presence. The design features a clean and sophisticated interface with intuitive navigation, responsive layouts, and engaging visuals that effectively communicate the company's services and expertise.",
-    image: "/Grand.jpg",
-    url: "https://www.figma.com/proto/l85dHUKSbwtFAl9WNZXiP0/Grant-Flow?node-id=2-219&t=PTtcw5rdJx8msQXs-1",
-    category: "Figma",
-  },
+  const parallaxRef = useRef(null);
 
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"],
+  });
 
-  {
-    title: "Tech Website",
-    description:
-      "A modern hero page concept designed for a technology brand, featuring a sleek interface, bold typography, and immersive visuals that create a powerful first impression. The design combines clean layouts, engaging animations, and clear call-to-action elements to effectively showcase innovative products, services, or digital solutions.",
-    image: "/tech.png",
-    url: "https://www.figma.com/proto/UmrtTzAmfy3rkiBWW9gKx5/Tech?node-id=1-2&t=bjOUqiUuRHRRdnnk-1",
-    category: "Figma",
-  },
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [-150, 150]);
 
+  const contentY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
-  {
-    title: "Church Website",
-    description:
-      "A modern and welcoming website concept designed for a church, focused on fostering community, faith, and meaningful connections. The design features a clean, elegant interface with intuitive navigation, calming visuals, and responsive layouts that provide a seamless experience across all devices.",
-    image: "/sharon.png",
-    url: "https://xd.adobe.com/view/e7c42a41-56ac-4966-9a78-3b71037a9417-b297/",
-    category: "Adobe XD, PS",
-  },
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.6, 1, 1, 0.6]);
 
-
-
-  {
-    title: "Chatbot",
-    description:
-      "A modern chatbot interface concept designed to deliver fast, intuitive, and engaging conversational experiences. The UI features a clean layout, responsive messaging components, and a user-friendly design that enhances communication between users and AI.",
-    image: "/chatbot1.jpg",
-    url: "",
-    category: "Figma",
-  },
-
-  {
-    title: "Grand Management",
-    description:
-      "A modern dashboard concept designed with a clean two-color theme to create a professional, visually balanced, and user-friendly experience. The interface combines intuitive navigation, responsive layouts, interactive analytics, and organized management tools to simplify daily operations. Built with a focus on clarity, efficiency, and scalability, the dashboard enables users to monitor performance, manage workflows, and access key insights effortlessly while maintaining a consistent and elegant design across desktop and tablet devices.",
-    image: "/dashboard.png",
-    url: "https://www.figma.com/proto/l85dHUKSbwtFAl9WNZXiP0/Grant-Flow?node-id=44-2&t=GFQRpCupBS1wD4dV-1",
-    category: "Figma",
-  },
-
-
-
-  {
-    title: "Green Color Palette",
-    description:
-      "A thoughtfully crafted green color palette designed to help clients build a fresh, trustworthy, and memorable brand identity. The carefully selected shades create a modern and professional look while conveying growth, reliability, and innovation. Suitable for websites, mobile apps, dashboards, and marketing materials, this palette ensures visual consistency, enhances user experience, and provides a strong foundation for creating engaging digital products that resonate with your audience.",
-    image: "/color pallets.png",
-    url: "https://www.figma.com/proto/BZUCsjVbYHpKDufvuB2SND/Green-Color-Chart-Palette-%E2%80%A2-All-Editable-with-Codes--Community-?node-id=0-24&t=EhItqCkeCguNGbHf-1",
-    category: "Figma",
-  },
-
-
-
-
-
-
-
-
-
-
-];
-
-export default function Home() {
-  const [showAll, setShowAll] = useState(false);
-
-  const displayedProjects = showAll ? projects : projects.slice(0, 5);
   return (
+    <>
 
 
 
+      {/* Hero Section */}
+      <section className="relative min-h-[100svh] overflow-hidden">
 
-    <main className="relative min-h-screen overflow-hidden bg-[#08130F] text-white">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg-emerald-500/20 blur-[140px]" />
-        <div className="absolute right-0 bottom-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-[150px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
-      </div>
+        {/* Background */}
+        <div className="absolute inset-0 bg-black">
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={currentSlide}
+              className="absolute inset-0"
+              initial={{
+                opacity: 0,
+                scale: 1.03,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 1,
+              }}
+              transition={{
+                opacity: {
+                  duration: 0.6,
+                  ease: "easeInOut",
+                },
+                scale: {
+                  duration: 5,
+                  ease: "linear",
+                },
+              }}
+            >
+              <Image
+                src={slides[currentSlide].image}
+                alt="Hero"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </motion.div>
+          </AnimatePresence>
 
-      {/* Background Glow */}
-      <div className="absolute -top-40 -left-32 h-[500px] w-[500px] rounded-full bg-emerald-500/20 blur-[170px]" />
-      <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-amber-400/10 blur-[170px]" />
 
-      {/* Grid */}
-      <div className="absolute inset-0 opacity-[0.04]">
+
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+
+        {/* Main Content */}
         <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
-
-      {/* Hero */}
-      <section id="hero" className="relative overflow-hidden pt-32 pb-20">
-
-
-        <div className="relative mx-auto flex w-[92%] max-w-7xl flex-col items-center gap-20 lg:flex-row">
-
-          {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: .8 }}
-            className="flex-1"
+          className="
+    relative z-10
+    flex min-h-[100svh]
+    flex-col
+    items-start md:items-center
+    justify-center
+    text-left md:text-center
+    px-4 sm:px-8 lg:px-12
+    pt-32 md:pt-88
+  "
+        >
+          <h1
+            className="
+      max-w-full md:max-w-6xl
+      text-white font-light tracking-tight
+      text-[22px]
+      sm:text-[30px]
+      md:text-[34px]
+      lg:text-[42px]
+      xl:text-[48px]
+      leading-[1.1]
+    "
           >
+            {slides[currentSlide].title}
+          </h1>
 
-            <span className="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-5 py-2 text-sm tracking-[0.25em] text-emerald-300">
-              UI/UX Designer & Developer
-            </span>
+          <div className="hidden lg:flex mt-8 gap-4">
+            <button className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-black">
+              <span>Discover</span>
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
+            </button>
 
-            <h1 className="mt-8 text-4xl font-black leading-tight md:text-7xl">
-              Ebenezer&nbsp;
-              <span className="text-white/40">
-                C Lalu
-              </span>
-            </h1>
+            <button className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-3 text-white backdrop-blur-sm">
+              <span>Get in Touch</span>
+              <ChevronsRight
+                size={18}
+                className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
+            </button>
+          </div>
+        </div>
 
-            <div className="mt-8 h-[2px] w-32 bg-gradient-to-r from-emerald-400 to-transparent" />
+        {/* Slider Indicator */}
+        <div className="absolute bottom-36 left-10 z-20 hidden lg:flex items-center gap-4">
+          <span className="text-xs tracking-[0.2em] text-white/60">
+            {String(currentSlide + 1).padStart(2, "0")}
+          </span>
 
-            <p className="mt-8 max-w-xl text-lg leading-9 text-gray-300">
-              Creating premium digital products through
-              <span className="font-semibold text-emerald-400">
-                {" "}UI/UX Design
-              </span>,
-              modern web development, and interactive user experiences.
-
-              With over
-              <span className="font-semibold text-emerald-400"> 3+ years </span>
-              of experience and
-              <span className="font-semibold text-emerald-400"> 50+ successful projects </span>
-              delivered across various industries, I build elegant digital products that combine creativity, usability, and performance.
-            </p>
-
-            <div className="mt-12 flex flex-wrap gap-5">
-
-              <a
-                href="#projects"
-                className="inline-flex rounded-full bg-emerald-500 px-8 py-4 font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          <div className="flex items-center gap-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`relative overflow-hidden rounded-full transition-all duration-500 ${currentSlide === index
+                  ? "w-20 h-[3px] bg-white/20"
+                  : "w-8 h-[3px] bg-white/20 hover:bg-white/40"
+                  }`}
               >
-                Explore Projects
-              </a>
+                {currentSlide === index && (
+                  <motion.div
+                    key={currentSlide}
+                    className="absolute inset-y-0 left-0 bg-white"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 5,
+                      ease: "linear",
+                    }}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
 
-              <a
-                href="/Ebenezer C Lalu Resume.pdf"
-                download
-                className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-8 py-4 font-semibold backdrop-blur-xl transition-all duration-300 hover:bg-white/10"
-              >
-                Download Resume
-              </a>
+          <span className="text-xs tracking-[0.2em] text-white/60">
+            {String(slides.length).padStart(2, "0")}
+          </span>
+        </div>
 
+
+
+        {/* Bottom Section */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 px-4 md:px-10 pb-6">
+          <div className="mb-6 h-px bg-white/20" />
+
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+
+
+
+              {/* Navigation */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={prevSlide}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+
+
+              {/* Brand */}
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center">
+                  <Image
+                    src={slides[currentSlide].logo}
+                    alt=""
+                    width={50}
+                    height={50}
+                    className="object-contain"
+                  />
+                </div>
+
+                <p className="max-w-md text-sm text-white md:text-base">
+                  {slides[currentSlide].description}
+                </p>
+              </div>
             </div>
 
-            {/* <div className="mt-16 flex items-center justify-between gap-4">
-
-              <div className="text-center">
-                <h2 className="text-3xl font-black text-white sm:text-5xl">
-                  3+
-                </h2>
-                <p className="mt-2 text-xs text-gray-400 sm:text-base">
-                  Years Experience
-                </p>
+            {/* Social */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-5 rounded-full border border-white/10 bg-black/40 px-5 py-3 text-white backdrop-blur-md">
+                <FaInstagram />
+                <FaFacebookF />
+                <FaXTwitter />
+                <FaLinkedinIn />
               </div>
+              <button
+                onClick={() => {
+                  document.getElementById("about")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-white/10"
+                aria-label="Scroll down"
+              >
+                <ChevronDown
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-y-1"
+                />
+              </button>
+            </div>
 
-              <div className="h-10 w-px bg-white/10 sm:h-14" />
+          </div>
+        </div>
+      </section>
 
-              <div className="text-center">
-                <h2 className="text-3xl font-black text-white sm:text-5xl">
-                  50+
+
+
+
+      {/* About Section */}
+      <FadeIn>
+        <section className=" px-5 py-3" id="about">
+          <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5">
+
+            {/* Top Content */}
+            <div className="grid items-center gap-14 lg:grid-cols-2">
+
+              {/* Left */}
+              <div>
+                <h2
+                  className="py-3 text-1xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-black/100
+  "
+                >
+                  German Engineering, Timeless Performance
+                  <span className="text-black/50"></span>
                 </h2>
-                <p className="mt-2 text-xs text-gray-400 sm:text-base">
-                  Projects
-                </p>
-              </div>
 
-              <div className="h-10 w-px bg-white/10 sm:h-14" />
 
-              <div className="text-center">
-                <h2 className="text-3xl font-black text-white sm:text-5xl">
-                  100%
-                </h2>
-                <p className="mt-2 text-xs text-gray-400 sm:text-base">
-                  Clients
-                </p>
-              </div>
+                <div className="max-w-7xl space-y-2 text-[10px] lg:text-[12px] leading-relaxed text-black/100">
+                  <p>
+                    German car brands have earned a global reputation for engineering
+                    excellence, cutting-edge technology, and timeless design. Renowned for
+                    their precision craftsmanship and exceptional performance, brands such
+                    as Mercedes-Benz, BMW, Porsche, Audi, and Volkswagen continue to set
+                    benchmarks in luxury, innovation, and driving dynamics.
+                  </p>
 
-            </div> */}
 
-          </motion.div>
+                  <p>
+                    From high-performance sports cars and premium sedans to advanced
+                    electric vehicles, German manufacturers combine heritage with modern
+                    innovation to deliver vehicles that offer superior comfort, safety, and
+                    reliability. Their commitment to quality and continuous innovation has
+                    made German automobiles a symbol of prestige and excellence worldwide.
+                  </p>
 
-          {/* RIGHT */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: .8 }}
-            className="relative flex-1 flex justify-center"
-          >
-
-            {/* Main Card */}
-
-            <div className="relative w-[430px] rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-3xl">
-
-              <div className="absolute -right-5 -top-5 h-28 w-28 rounded-full bg-emerald-500 blur-3xl opacity-40" />
-
-              <img
-                src="/Ebenezer C Lalu Pro image.png"
-                alt=""
-                className="mx-auto h-[420px] w-full rounded-3xl object-cover"
-              />
-
-              <div className="mt-8 flex items-center justify-between">
-
-                <div>
-
-                  <h3 className="text-2xl font-bold">
-                    Ebenezer C Lalu
-                  </h3>
-
-                  <p className="text-gray-400">
-                    MCA Graduate
+                  <p>
+                    From high-performance sports cars and premium sedans to advanced
+                    electric vehicles, German manufacturers combine heritage with modern
+                    innovation to deliver vehicles that offer superior comfort, safety, and
+                    reliability. Their commitment to quality and continuous innovation has
+                    made German automobiles a symbol of prestige and excellence worldwide.
+                  </p>
+                  <p>
+                    German car brands are globally recognized for their precision engineering,
+                    luxury, and innovation. Brands like Mercedes-Benz, BMW, Porsche, Audi, and
+                    Volkswagen have set industry standards with their commitment to performance,
+                    safety, and advanced technology. Combining timeless design with cutting-edge
+                    engineering, German automobiles quality, reliability, and driving excellence
+                    admired around the world.
                   </p>
 
                 </div>
 
-                <div className="rounded-xl bg-emerald-500 px-4 py-2 text-black font-semibold">
-                  Available
+                <button
+                  className="
+    mt-6 md:mt-8
+    group
+    inline-flex
+    items-center
+    gap-1
+    whitespace-nowrap
+    rounded-full
+    border border-black
+    px-4 py-2
+    text-xs sm:text-sm
+    transition-all duration-300
+    hover:bg-black
+    hover:text-white
+  "
+                >
+                  <span>Learn More</span>
+
+                </button>
+              </div>
+
+              {/* Right */}
+              <div className="pointer-events-none select-none flex justify-center">
+                <video
+                  src="/animation.mp4"
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="auto"
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  className="w-full max-w-[800px] object-contain"
+                  style={{
+                    WebkitUserSelect: "none",
+                    userSelect: "none",
+                  }}
+                />
+              </div>
+            </div>
+
+
+
+          </div>
+        </section></FadeIn>
+
+
+      {/* German Cars Section */}
+      <section className="px-5 py-10 md:py-14 lg:py-16">
+        <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-5 lg:grid-cols-[38%_62%]">
+
+          {/* Left Card */}
+          <FadeIn>
+            <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
+
+              <Image
+                src="/Girl in car.jpg"
+                alt="German Brands"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+              {/* Top Right Arrow */}
+              <div className="absolute top-5 right-5 z-20">
+                <button
+                  className="
+        flex h-12 w-12 items-center justify-center
+        rounded-full bg-white/100 text-black/80
+        transition-all duration-300
+        hover:scale-100
+      "
+                >
+                  <ArrowUpRight size={24} strokeWidth={2} />
+                </button>
+              </div>
+
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8 text-white">
+
+                <h3 className="mb-3 text-xl leading-tight sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl">
+                  15+ German Brands
+                </h3>
+
+                <p className="max-w-md text-[12px] sm:text-[13px] lg:text-[14px] leading-relaxed text-white/90">
+                  Discover the excellence of German automotive engineering
+                  through a curated collection of premium brands renowned
+                  for luxury.
+                </p>
+
+              </div>
+            </div></FadeIn>
+
+          {/* Right Card */}
+          <FadeIn>
+            <div className="group relative h-[420px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[30px]">
+
+              <Image
+                src="/Girl in car 1.jpg"
+                alt="Luxury"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7 lg:bottom-8 lg:left-8 lg:right-8">
+
+                <h2
+                  className="
+            max-w-5xl
+            text-white
+            font-light
+            tracking-tight
+            leading-[1.05]
+
+            text-[28px]
+            sm:text-[38px]
+            md:text-[48px]
+            lg:text-[56px]
+            xl:text-[64px]
+          "
+                >
+                  Luxury Beyond Limits,
+                  <br />
+                  Performance Beyond
+                  <br />
+                  Expectations
+                </h2>
+
+              </div>
+            </div></FadeIn>
+
+        </div>
+      </section>
+
+
+      {/* Logo Section */}
+      <section className="relative overflow-hidden py-5 md:py-16 lg:py-10">
+
+        {/* Background Glow */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute left-1/2 top-0 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[#8B7355]/10 blur-[120px] md:h-[450px] md:w-[450px]" />
+          <div className="absolute -left-24 bottom-0 h-60 w-60 rounded-full bg-slate-400/10 blur-[100px] md:h-80 md:w-80" />
+          <div className="absolute -right-20 top-20 h-60 w-60 rounded-full bg-[#8B7355]/10 blur-[100px] md:h-72 md:w-72" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8">
+
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .7 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-10 max-w-3xl text-center md:mb-16"
+          >
+
+            <span className="inline-block rounded-full border border-[#8B7355]/20 bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[4px] text-[#5C4632] shadow-sm">
+              Premium Collection
+            </span>
+
+            <h2 className="mt-5 text-2xl font-semibold text-[#1f2937] sm:text-3xl md:text-4xl lg:text-5xl">
+              Discover Our Brands
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base md:text-lg">
+              Explore Germany's most iconic automotive manufacturers renowned for engineering excellence, innovation and timeless luxury.
+            </p>
+
+            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-[#5C4632] via-[#8B7355] to-slate-700" />
+
+          </motion.div>
+
+          {/* Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: .08,
+                },
+              },
+            }}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4 xl:grid-cols-6"
+          >
+
+            {brands.map((brand) => (
+              <motion.div
+                key={brand.name}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 30,
+                    scale: .95,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  },
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
+                transition={{
+                  duration: .4,
+                }}
+                className="
+            group
+            relative
+            overflow-hidden
+            rounded-2xl
+            border
+            border-gray-200
+            bg-white/90
+            p-4
+            sm:p-5
+            lg:p-6
+            backdrop-blur-xl
+            transition-all
+            duration-500
+            hover:border-[#8B7355]/40
+            hover:shadow-[0_20px_50px_rgba(0,0,0,.12)]
+          "
+              >
+
+                {/* Hover Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8B7355]/5 via-transparent to-slate-700/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+                {/* Glow */}
+                <div className="absolute inset-0 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100">
+                  <div className="h-full w-full rounded-full bg-[#8B7355]/10" />
+                </div>
+
+                {/* Shine */}
+                <div className="absolute -left-24 top-0 h-full w-12 rotate-12 bg-white/40 blur-md transition-all duration-1000 group-hover:left-[140%]" />
+
+                {/* Logo */}
+                <div className="relative flex h-16 items-center justify-center sm:h-20 md:h-24">
+
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={150}
+                    height={80}
+                    className="
+                h-10
+                sm:h-12
+                md:h-14
+                lg:h-16
+                w-auto
+                object-contain
+                transition-all
+                duration-500
+                group-hover:scale-110
+              "
+                  />
+
+                </div>
+
+                {/* Divider */}
+                <div className="mx-auto mt-4 h-px w-8 bg-gradient-to-r from-transparent via-[#8B7355] to-transparent opacity-0 transition-all duration-500 group-hover:w-16 group-hover:opacity-100" />
+
+                {/* Brand */}
+                <h3 className="
+            mt-4
+            text-center
+            text-[11px]
+            font-semibold
+            uppercase
+            tracking-[2px]
+            text-gray-700
+            transition
+            duration-300
+            sm:text-xs
+            md:text-sm
+            group-hover:text-[#5C4632]
+          ">
+                  {brand.name}
+                </h3>
+
+              </motion.div>
+            ))}
+
+          </motion.div>
+
+        </div>
+
+      </section>
+
+      {/* parlx Section */}
+      <section
+        ref={parallaxRef}
+        className="relative min-h-[750px] overflow-hidden py-20 lg:h-[850px] lg:py-0"
+      >
+        {/* Background */}
+        <motion.div
+          style={{ y: backgroundY }}
+          className="absolute inset-0 scale-110"
+        >
+          <Image
+            src="/rs7.jpg"
+            alt="Luxury Car"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/80" />
+
+        {/* Bronze Glow */}
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#8B7355]/20 blur-[130px] md:h-[450px] md:w-[450px]" />
+
+        {/* Background Text */}
+        <motion.h1
+          animate={{ x: ["0%", "-35%"] }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="pointer-events-none absolute top-1/2 hidden -translate-y-1/2 whitespace-nowrap text-[180px] font-black uppercase tracking-[18px] text-white/[0.04] xl:block xl:text-[240px]"
+        >
+          MERCEDES • BMW • AUDI • PORSCHE • MERCEDES • BMW • AUDI • PORSCHE
+        </motion.h1>
+
+        <div className="relative z-20 mx-auto flex min-h-[750px] max-w-[1800px] items-center px-5 py-12 sm:px-8 lg:min-h-[850px] lg:py-0">
+
+          <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: .8 }}
+              viewport={{ once: true }}
+              className="order-2 text-center lg:order-1 lg:text-left"
+            >
+              <span className="inline-flex rounded-full border border-[#8B7355]/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[4px] text-[#B79A74] backdrop-blur sm:text-xs">
+                German Engineering
+              </span>
+
+              <h2 className="mt-6 text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                Driven by
+                <br />
+                <span className="text-[#B79A74]">
+                  Precision &
+                  <br className="hidden sm:block" />
+                  Luxury
+                </span>
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-300 sm:text-base md:text-lg lg:mx-0 lg:mt-8">
+                Experience legendary German engineering, iconic design,
+                and performance that defines the world's most prestigious
+                automotive brands.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+
+                <button className="w-full rounded-full bg-[#8B7355] px-8 py-3 font-medium text-white transition hover:bg-[#6E5943] sm:w-auto lg:py-4">
+                  Explore Collection
+                </button>
+
+                <button className="w-full rounded-full border border-white/20 px-8 py-3 font-medium text-white backdrop-blur transition hover:bg-white hover:text-black sm:w-auto lg:py-4">
+                  Contact Us
+                </button>
+
+              </div>
+            </motion.div>
+
+            {/* Glass Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: .2, duration: .8 }}
+              viewport={{ once: true }}
+              className="order-1 mx-auto w-full max-w-xs rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur-xl sm:max-w-sm sm:p-8 lg:order-2 lg:ml-auto"
+            >
+              <p className="text-xs uppercase tracking-[4px] text-[#B79A74]">
+                Heritage
+              </p>
+
+              <h3 className="mt-3 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+                1886
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-gray-300 sm:text-base">
+                More than a century of precision engineering, innovation,
+                and timeless automotive craftsmanship.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 sm:gap-6">
+
+                <div>
+                  <h4 className="text-2xl font-bold text-white sm:text-3xl">
+                    6+
+                  </h4>
+                  <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+                    Luxury Brands
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-bold text-white sm:text-3xl">
+                    100+
+                  </h4>
+                  <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+                    Premium Models
+                  </p>
                 </div>
 
               </div>
+            </motion.div>
 
-            </div>
-
-
-
-            {/* Border */}
-
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                repeat: Infinity,
-                duration: 40,
-                ease: "linear"
-              }}
-              className="absolute h-[560px] w-[560px] rounded-full border border-dashed border-emerald-500/20"
-            />
-
-          </motion.div>
+          </div>
 
         </div>
       </section>
 
+      {/* Service Section */}
+      <section className="relative overflow-hidden bg-[#f8f8f8] py-20 lg:py-28">
 
-      {/* Projects */}
-      <section
-        id="projects"
-        className="relative overflow-hidden py-15"
-      ><div className="relative mx-auto w-[92%] max-w-7xl">
+        {/* Background Glow */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#8B7355]/10 blur-[150px]" />
+          <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-slate-300/20 blur-[180px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1800px] px-5">
 
           {/* Heading */}
-
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .8 }}
             viewport={{ once: true }}
-            transition={{ duration: .6 }}
-            className="mb-20 text-center"
+            className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2 text-sm tracking-[0.2em] text-emerald-300">
-              MY PROJECTS
+            <span className="rounded-full border border-[#8B7355]/20 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[4px] text-[#8B7355]">
+              Premium Services
             </span>
 
-            <h2 className="mt-6 text-5xl font-black">
-              Featured Work
+            <h2 className="mt-6 text-3xl font-semibold text-[#1f2937] sm:text-4xl lg:text-5xl">
+              Exceptional Automotive Services
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-gray-400">
-              Selected projects designed and developed for companies,
-              startups and freelance clients.
+            <p className="mt-5 text-gray-500">
+              Experience world-class automotive solutions inspired by German
+              engineering, innovation, and luxury craftsmanship.
             </p>
           </motion.div>
 
-          <div className="space-y-24">
-            {projects
-              .slice(0, showAll ? projects.length : 5)
-              .map((project, index) => (
-                <motion.a
-                  key={index}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 80 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  className="group block"
+          <div className="grid items-center gap-12 lg:grid-cols-[45%_55%]">
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: .8 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-[35px]"
+            >
+              <Image
+                src="/Cargirl.jpg"
+                alt="Luxury Services"
+                width={900}
+                height={900}
+                className="h-[350px] w-full object-cover transition duration-700 group-hover:scale-110 md:h-[500px] lg:h-[700px]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              <div className="absolute bottom-8 left-8 right-8">
+
+                <h3 className="text-3xl font-semibold text-white">
+                  Precision Meets Luxury
+                </h3>
+
+                <p className="mt-4 max-w-md text-gray-300">
+                  Delivering premium automotive experiences through
+                  engineering excellence and personalized service.
+                </p>
+
+              </div>
+
+            </motion.div>
+
+            {/* Service Cards */}
+            <div className="grid gap-5 sm:grid-cols-2">
+              {[
+                {
+                  number: "01",
+                  title: "Luxury Sales",
+                  desc: "Premium German vehicles with personalized consultation.",
+                },
+                {
+                  number: "02",
+                  title: "Maintenance",
+                  desc: "Expert servicing using genuine manufacturer parts.",
+                },
+                {
+                  number: "03",
+                  title: "Performance",
+                  desc: "Enhance driving dynamics with bespoke upgrades.",
+                },
+                {
+                  number: "04",
+                  title: "Brand Partnerships",
+                  desc: "Strategic collaborations with world-renowned brands.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="group rounded-[28px] border border-white bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#8B7355]/30 hover:shadow-2xl"
                 >
-                  {/* Browser Window */}
-                  <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#101916] shadow-[0_25px_60px_rgba(0,0,0,.45)] transition-all duration-500 group-hover:border-emerald-500/40">
+                  <span className="text-5xl font-black text-[#8B7355]/20">
+                    {item.number}
+                  </span>
 
-                    {/* Browser Header */}
-                    <div className="flex items-center justify-between border-b border-white/10 bg-[#0b1311] px-6 py-4">
+                  <h3 className="mt-4 text-xl font-semibold text-[#1f2937] transition-colors duration-300 group-hover:text-[#8B7355]">
+                    {item.title}
+                  </h3>
 
-                      <div className="flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-red-500"></span>
-                        <span className="h-3 w-3 rounded-full bg-yellow-400"></span>
-                        <span className="h-3 w-3 rounded-full bg-green-500"></span>
-                      </div>
+                  <p className="mt-3 leading-7 text-gray-500">
+                    {item.desc}
+                  </p>
 
-                      <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-gray-400">
-                        <div className="h-2 w-2 rounded-full bg-emerald-400"></div>
-                        <span>{project.title}</span>
-                      </div>
-
-                      <div className="text-emerald-400  text-sm font-medium">
-                        Live
-                      </div>
-
-                    </div>
-
-                    {/* Screenshot */}
-
-                    <div className="overflow-hidden bg-black">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full transition duration-700 group-hover:scale-105"
-                      />
-                    </div>
-
-                  </div>
-
-                  {/* Bottom Content */}
-                  <div className="mt-8 border-t border-white/10 pt-8">
-
-                    <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-
-                      {/* Left Content */}
-                      <div>
-
-                        <div className="mb-4 flex items-center gap-3">
-
-                          <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium tracking-wide text-emerald-300">
-                            {project.category}
-                          </span>
-
-                        </div>
-
-                        <h3 className="text-3xl font-bold tracking-tight transition-colors duration-300 group-hover:text-emerald-400">
-                          {project.title}
-                        </h3>
-
-                        <p className="mt-5 max-w-3xl text-base leading-8 text-gray-400">
-                          {project.description}
-                        </p>
-
-                      </div>
-
-                      {/* Right Link */}
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-base font-medium text-white transition-all duration-300 hover:gap-3 hover:text-emerald-400"
-                      >
-                        Visit Website
-                        <ArrowUpRight size={18} strokeWidth={2.2} />
-                      </a>
-
-                    </div>
-
-                  </div>
-
-
-                </motion.a>
+                  <button
+                    className="
+          mt-6 md:mt-8
+          inline-flex
+          items-center
+          gap-1
+          whitespace-nowrap
+          rounded-full
+          border border-black
+          px-4 py-2
+          text-xs sm:text-sm
+          transition-all duration-300
+          hover:bg-black
+          hover:text-white
+        "
+                  >
+                    <span>Learn More</span>
+                  </button>
+                </div>
               ))}
+            </div>
+
           </div>
 
-          {projects.length > 5 && (
-            <div className="mt-16 flex justify-center">
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="group rounded-full border border-emerald-500/30 bg-emerald-500/10 px-8 py-4 text-emerald-300 transition-all duration-300 hover:bg-emerald-500 hover:text-black"
-              >
-                {showAll ? "Show Less" : "View All Projects"}
-              </button>
-            </div>
-          )}
-
         </div>
-      </section>
 
-    </main>
+      </section>
+    </>
   );
 }
