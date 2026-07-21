@@ -1,50 +1,28 @@
 import type { Metadata } from "next";
-import { Michroma } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "../components/SmoothScroll";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/component/navbar";
+import Footer from "@/component/footer";
 
-
-
-
-
-
-
-
-const michroma = Michroma({
+const geist = Geist({
   subsets: ["latin"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
-  title: "German Luxury Automotive",
-  description:
-    "Connecting premium German automotive brands worldwide. Explore partnerships, innovation, and luxury experiences with Mercedes-Benz, BMW, Audi, Porsche, Volkswagen, and Alpina.",
-  keywords: [
-    "Mercedes-Benz",
-    "BMW",
-    "Audi",
-    "Porsche",
-    "Volkswagen",
-    "Alpina",
-    "German Luxury Cars",
-    "Automotive Network",
-  ],
-
-
+  title: "Ebenezer C Lalu",
+  description: "UI/UX Designer & Front-End Developer Portfolio",
 };
-
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className={michroma.className}>
+      <body className={geist.className}>
         <Navbar />
-        <SmoothScroll />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
