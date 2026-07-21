@@ -49,7 +49,7 @@ const projects = [
     description:
       "A premium website concept crafted to reflect the elegance, innovation, and performance of the Lexus brand. The design features a sophisticated user interface with immersive visuals, refined typography, and smooth animations that create a luxurious browsing experience. Built with a focus on responsive design and intuitive navigation, the website showcases vehicle collections, brand heritage, and advanced automotive technology while delivering a seamless experience across desktop, tablet, and mobile devices.",
     image: "/Lexus.png",
-    url: "https://ebenezer-projects.vercel.app/",
+    url: "https://www.figma.com/proto/sM5fGyEGWCTDaIzvzZ5ykU/Lexus?node-id=6-248&t=pzCtHg9BBP3LeGdN-1",
     category: "Figma",
   },
 
